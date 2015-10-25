@@ -1,0 +1,15 @@
+PODS:
+  - TPKeyboardAvoiding (1.2.10)
+  - Typhoon (3.3.4):
+    - Typhoon/no-arc (= 3.3.4)
+  - Typhoon/no-arc (3.3.4)
+
+DEPENDENCIES:
+  - TPKeyboardAvoiding (~> 1.2.3)
+  - Typhoon (~> 3.3)
+
+SPEC CHECKSUMS:
+  TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
+  Typhoon: 555e580d7edaaf61c5367c2a80c15a0ddb368406
+
+COCOAPODS: 0.39.0

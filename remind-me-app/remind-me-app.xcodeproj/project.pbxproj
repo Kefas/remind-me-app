@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		72BED5821BDD5C75008C185B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5811BDD5C75008C185B /* AppDelegate.swift */; };
-		72BED5841BDD5C75008C185B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5831BDD5C75008C185B /* ViewController.swift */; };
-		72BED5871BDD5C75008C185B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BED5851BDD5C75008C185B /* Main.storyboard */; };
 		72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BED5881BDD5C75008C185B /* Assets.xcassets */; };
-		72BED58C1BDD5C75008C185B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BED58A1BDD5C75008C185B /* LaunchScreen.storyboard */; };
 		72BED5971BDD5C75008C185B /* remind_me_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5961BDD5C75008C185B /* remind_me_appTests.swift */; };
 		72BED5A21BDD5C76008C185B /* remind_me_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5A11BDD5C76008C185B /* remind_me_appUITests.swift */; };
+		72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B41BDD647D008C185B /* TyphoonDefinitionExtension.swift */; };
+		72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */; };
+		72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */; };
+		72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5BC1BDD720E008C185B /* CALayerExtension.swift */; };
+		7DEB4114000D7FCFC1CCBF9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4380BD849F8512C9C7DE7EE /* libPods.a */; };
+		EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2660EE1114206935029112 /* LoginViewController.swift */; };
+		EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2661A1FE73F74FCE15A01A /* Main.storyboard */; };
+		EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE26625225DC65D5BAE6C735 /* AppDelegate.swift */; };
+		EE266D896E25FC5F2E34FD59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE266836E8F54F5515708BCA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +39,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0075400197A16FAC270FDB58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		72BED57E1BDD5C75008C185B /* remind-me-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "remind-me-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		72BED5811BDD5C75008C185B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		72BED5831BDD5C75008C185B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		72BED5861BDD5C75008C185B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72BED5881BDD5C75008C185B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		72BED58B1BDD5C75008C185B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		72BED58D1BDD5C75008C185B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BED5921BDD5C75008C185B /* remind-me-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "remind-me-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BED5961BDD5C75008C185B /* remind_me_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remind_me_appTests.swift; sourceTree = "<group>"; };
 		72BED5981BDD5C75008C185B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BED59D1BDD5C76008C185B /* remind-me-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "remind-me-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BED5A11BDD5C76008C185B /* remind_me_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remind_me_appUITests.swift; sourceTree = "<group>"; };
 		72BED5A31BDD5C76008C185B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72BED5B41BDD647D008C185B /* TyphoonDefinitionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TyphoonDefinitionExtension.swift; sourceTree = "<group>"; };
+		72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
+		72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
+		72BED5BC1BDD720E008C185B /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		B69D3475C674B77FA7FDB7A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EE2660EE1114206935029112 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EE2661C1D9D5AC3D7D8711F9 /* remind-me-app-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "remind-me-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		EE26625225DC65D5BAE6C735 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE2664BFCEA1F7CEB9C6703F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "remind-me-app/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
+		EE26657920D6976242027662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "remind-me-app/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		EE2667DFB15025E0F5EAF930 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		F4380BD849F8512C9C7DE7EE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEB4114000D7FCFC1CCBF9F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +95,8 @@
 				72BED5951BDD5C75008C185B /* remind-me-appTests */,
 				72BED5A01BDD5C76008C185B /* remind-me-appUITests */,
 				72BED57F1BDD5C75008C185B /* Products */,
+				953992E9C2DEB1876DB3EE00 /* Pods */,
+				DB36CCA850F64133D1BEC450 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +113,12 @@
 		72BED5801BDD5C75008C185B /* remind-me-app */ = {
 			isa = PBXGroup;
 			children = (
-				72BED5811BDD5C75008C185B /* AppDelegate.swift */,
-				72BED5831BDD5C75008C185B /* ViewController.swift */,
-				72BED5851BDD5C75008C185B /* Main.storyboard */,
 				72BED5881BDD5C75008C185B /* Assets.xcassets */,
-				72BED58A1BDD5C75008C185B /* LaunchScreen.storyboard */,
-				72BED58D1BDD5C75008C185B /* Info.plist */,
+				EE266809B21A94EEB206381C /* Typhoon */,
+				EE266CD2F8A107FDB92B4E0C /* Supporting Files */,
+				EE266C4E5D4503A3254B8DC3 /* Views */,
+				EE266B2714FEB88E4147985A /* Login */,
+				72BED5BC1BDD720E008C185B /* CALayerExtension.swift */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -125,6 +141,60 @@
 			path = "remind-me-appUITests";
 			sourceTree = "<group>";
 		};
+		953992E9C2DEB1876DB3EE00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B69D3475C674B77FA7FDB7A3 /* Pods.debug.xcconfig */,
+				0075400197A16FAC270FDB58 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB36CCA850F64133D1BEC450 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4380BD849F8512C9C7DE7EE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE266809B21A94EEB206381C /* Typhoon */ = {
+			isa = PBXGroup;
+			children = (
+				72BED5B41BDD647D008C185B /* TyphoonDefinitionExtension.swift */,
+				72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */,
+				72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */,
+			);
+			path = Typhoon;
+			sourceTree = "<group>";
+		};
+		EE266B2714FEB88E4147985A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EE2660EE1114206935029112 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EE266C4E5D4503A3254B8DC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE2661A1FE73F74FCE15A01A /* Main.storyboard */,
+				EE266836E8F54F5515708BCA /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE266CD2F8A107FDB92B4E0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE26625225DC65D5BAE6C735 /* AppDelegate.swift */,
+				EE2667DFB15025E0F5EAF930 /* Info.plist */,
+				EE2661C1D9D5AC3D7D8711F9 /* remind-me-app-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72BED5A61BDD5C76008C185B /* Build configuration list for PBXNativeTarget "remind-me-app" */;
 			buildPhases = (
+				6A41E63EF6A25A0233E20D18 /* Check Pods Manifest.lock */,
 				72BED57A1BDD5C75008C185B /* Sources */,
 				72BED57B1BDD5C75008C185B /* Frameworks */,
 				72BED57C1BDD5C75008C185B /* Resources */,
+				BDA09BBD4DAF223E457AA151 /* Embed Pods Frameworks */,
+				07C7E4A41E641E73678A38CF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,9 +302,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72BED58C1BDD5C75008C185B /* LaunchScreen.storyboard in Resources */,
 				72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */,
-				72BED5871BDD5C75008C185B /* Main.storyboard in Resources */,
+				EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */,
+				EE266D896E25FC5F2E34FD59 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +324,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07C7E4A41E641E73678A38CF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A41E63EF6A25A0233E20D18 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA09BBD4DAF223E457AA151 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72BED57A1BDD5C75008C185B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72BED5841BDD5C75008C185B /* ViewController.swift in Sources */,
-				72BED5821BDD5C75008C185B /* AppDelegate.swift in Sources */,
+				72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */,
+				72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */,
+				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
+				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
+				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
+				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,18 +418,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		72BED5851BDD5C75008C185B /* Main.storyboard */ = {
+		EE2661A1FE73F74FCE15A01A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				72BED5861BDD5C75008C185B /* Base */,
+				EE2664BFCEA1F7CEB9C6703F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		72BED58A1BDD5C75008C185B /* LaunchScreen.storyboard */ = {
+		EE266836E8F54F5515708BCA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				72BED58B1BDD5C75008C185B /* Base */,
+				EE26657920D6976242027662 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -348,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -386,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -395,23 +520,31 @@
 		};
 		72BED5A71BDD5C76008C185B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B69D3475C674B77FA7FDB7A3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "remind-me-app/Info.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/remind-me-app/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AGH.remind-me-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "remind-me-app/Supporting Files/remind-me-app-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		72BED5A81BDD5C76008C185B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0075400197A16FAC270FDB58 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "remind-me-app/Info.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/remind-me-app/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AGH.remind-me-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "remind-me-app/Supporting Files/remind-me-app-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -482,6 +615,7 @@
 				72BED5A81BDD5C76008C185B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72BED5A91BDD5C76008C185B /* Build configuration list for PBXNativeTarget "remind-me-appTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +624,7 @@
 				72BED5AB1BDD5C76008C185B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72BED5AC1BDD5C76008C185B /* Build configuration list for PBXNativeTarget "remind-me-appUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +633,7 @@
 				72BED5AE1BDD5C76008C185B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
