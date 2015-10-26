@@ -14,6 +14,9 @@
 		72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */; };
 		72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */; };
 		72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5BC1BDD720E008C185B /* CALayerExtension.swift */; };
+		72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B511BDE863C00300E9C /* BorderedButton.swift */; };
+		72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B531BDE889800300E9C /* GlobalConstants.swift */; };
+		72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */; };
 		7DEB4114000D7FCFC1CCBF9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4380BD849F8512C9C7DE7EE /* libPods.a */; };
 		EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2660EE1114206935029112 /* LoginViewController.swift */; };
 		EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2661A1FE73F74FCE15A01A /* Main.storyboard */; };
@@ -52,6 +55,9 @@
 		72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
 		72BED5BC1BDD720E008C185B /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		72DC7B511BDE863C00300E9C /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		72DC7B531BDE889800300E9C /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B69D3475C674B77FA7FDB7A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE2660EE1114206935029112 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EE2661C1D9D5AC3D7D8711F9 /* remind-me-app-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "remind-me-app-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -158,6 +164,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE2667E77BC9817C7DFBC7AE /* BorderedButton */ = {
+			isa = PBXGroup;
+			children = (
+				72DC7B511BDE863C00300E9C /* BorderedButton.swift */,
+			);
+			path = BorderedButton;
+			sourceTree = "<group>";
+		};
 		EE266809B21A94EEB206381C /* Typhoon */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EE2660EE1114206935029112 /* LoginViewController.swift */,
+				72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -181,6 +196,7 @@
 			children = (
 				EE2661A1FE73F74FCE15A01A /* Main.storyboard */,
 				EE266836E8F54F5515708BCA /* LaunchScreen.storyboard */,
+				EE2667E77BC9817C7DFBC7AE /* BorderedButton */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 				EE26625225DC65D5BAE6C735 /* AppDelegate.swift */,
 				EE2667DFB15025E0F5EAF930 /* Info.plist */,
 				EE2661C1D9D5AC3D7D8711F9 /* remind-me-app-Bridging-Header.h */,
+				72DC7B531BDE889800300E9C /* GlobalConstants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -377,12 +394,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */,
 				72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */,
 				72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */,
 				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
 				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
+				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,
+				72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
