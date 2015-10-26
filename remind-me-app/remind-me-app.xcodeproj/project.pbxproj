@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */; };
 		72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BED5881BDD5C75008C185B /* Assets.xcassets */; };
 		72BED5971BDD5C75008C185B /* remind_me_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5961BDD5C75008C185B /* remind_me_appTests.swift */; };
 		72BED5A21BDD5C76008C185B /* remind_me_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5A11BDD5C76008C185B /* remind_me_appUITests.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0075400197A16FAC270FDB58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		72BED57E1BDD5C75008C185B /* remind-me-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "remind-me-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BED5881BDD5C75008C185B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72BED5921BDD5C75008C185B /* remind-me-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "remind-me-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 			children = (
 				EE2660EE1114206935029112 /* LoginViewController.swift */,
 				72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */,
+				721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */,
 				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
 				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
+				721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,

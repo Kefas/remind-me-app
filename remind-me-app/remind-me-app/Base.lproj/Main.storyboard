@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rux-dg-VdR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AS8-Fy-EPY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Intro View Controller-->
+        <scene sceneID="YMT-l8-N0j">
+            <objects>
+                <viewController id="AS8-Fy-EPY" customClass="IntroViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Fk-AL-PQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="YIN-M7-QX5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C6m-Qy-Yvh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nLh-XM-5dP">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="VI8-Ui-r3q"/>
+                                    <constraint firstAttribute="width" constant="250" id="skn-e0-zN7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nLh-XM-5dP" firstAttribute="centerY" secondItem="C6m-Qy-Yvh" secondAttribute="centerY" id="J6f-yH-e0z"/>
+                            <constraint firstItem="nLh-XM-5dP" firstAttribute="centerX" secondItem="C6m-Qy-Yvh" secondAttribute="centerX" id="mj8-24-hhV"/>
+                            <constraint firstItem="nLh-XM-5dP" firstAttribute="top" secondItem="6Fk-AL-PQ2" secondAttribute="bottom" priority="999" constant="80" id="rpV-of-AJF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageHeightConstraint" destination="VI8-Ui-r3q" id="JL6-UH-q7e"/>
+                        <outlet property="imageWidthConstraint" destination="skn-e0-zN7" id="oSR-Ec-cTc"/>
+                        <outlet property="logoImageView" destination="nLh-XM-5dP" id="Vdd-Xw-XX4"/>
+                        <outlet property="verticalCenterConstraint" destination="J6f-yH-e0z" id="RcM-2r-IFs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkW-Gi-C8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1071" y="627"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -21,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ChJ-PD-XFS">
-                                        <rect key="frame" x="225" y="85" width="150" height="150"/>
+                                        <rect key="frame" x="225" y="80" width="150" height="150"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="362-75-i7d"/>
@@ -37,7 +77,7 @@
                                         </variation>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxI-Wu-4QY">
-                                        <rect key="frame" x="20" y="275" width="560" height="74"/>
+                                        <rect key="frame" x="20" y="270" width="560" height="74"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-Qj-AUI">
                                                 <rect key="frame" x="40" y="0.0" width="520" height="30"/>
@@ -126,7 +166,7 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a56-GH-cYY">
-                                        <rect key="frame" x="243" y="374" width="114" height="29"/>
+                                        <rect key="frame" x="243" y="369" width="114" height="29"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="Forgot password?">
@@ -137,7 +177,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-O0-bXl" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="453" width="560" height="41"/>
+                                        <rect key="frame" x="20" y="448" width="560" height="41"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
@@ -171,7 +211,7 @@
                                     <constraint firstItem="a56-GH-cYY" firstAttribute="top" secondItem="TxI-Wu-4QY" secondAttribute="bottom" constant="25" id="l8e-o8-b7A"/>
                                     <constraint firstAttribute="trailing" secondItem="tM2-O0-bXl" secondAttribute="trailing" constant="20" id="lIz-MR-bQb"/>
                                     <constraint firstItem="tM2-O0-bXl" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="sox-9I-Jam"/>
-                                    <constraint firstItem="ChJ-PD-XFS" firstAttribute="top" secondItem="OWe-TQ-0Cl" secondAttribute="top" constant="85" id="spc-Ag-HpE"/>
+                                    <constraint firstItem="ChJ-PD-XFS" firstAttribute="top" secondItem="OWe-TQ-0Cl" secondAttribute="top" constant="80" id="spc-Ag-HpE"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -214,7 +254,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="frt-tM-tFF">
-                                        <rect key="frame" x="225" y="85" width="150" height="150"/>
+                                        <rect key="frame" x="225" y="80" width="150" height="150"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="3Wd-Kk-2Sn"/>
@@ -230,7 +270,7 @@
                                         </variation>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="si9-09-qFY">
-                                        <rect key="frame" x="20" y="275" width="560" height="115"/>
+                                        <rect key="frame" x="20" y="270" width="560" height="115"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ysI-CM-ed0">
                                                 <rect key="frame" x="40" y="0.0" width="520" height="30"/>
@@ -363,7 +403,7 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y6-bv-xke" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="430" width="560" height="41"/>
+                                        <rect key="frame" x="20" y="425" width="560" height="41"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
@@ -390,7 +430,7 @@
                                     <constraint firstAttribute="trailing" secondItem="9Y6-bv-xke" secondAttribute="trailing" constant="20" id="LwP-ua-QRH"/>
                                     <constraint firstItem="9Y6-bv-xke" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="WOb-pH-jYO"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="leading" secondItem="9t0-Fl-bQr" secondAttribute="leading" constant="20" id="ZdR-be-lwo"/>
-                                    <constraint firstItem="frt-tM-tFF" firstAttribute="top" secondItem="9t0-Fl-bQr" secondAttribute="top" constant="85" id="g7a-jj-Pg8"/>
+                                    <constraint firstItem="frt-tM-tFF" firstAttribute="top" secondItem="9t0-Fl-bQr" secondAttribute="top" constant="80" id="g7a-jj-Pg8"/>
                                     <constraint firstAttribute="bottom" secondItem="9Y6-bv-xke" secondAttribute="bottom" priority="999" constant="50" id="ixv-uq-foB"/>
                                     <constraint firstItem="frt-tM-tFF" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="mqK-Xe-3U1"/>
                                     <constraint firstItem="9Y6-bv-xke" firstAttribute="top" secondItem="si9-09-qFY" secondAttribute="bottom" constant="40" id="rsx-NP-2BN"/>
