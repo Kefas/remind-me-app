@@ -25,16 +25,79 @@
                                     <constraint firstAttribute="width" constant="250" id="skn-e0-zN7"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgI-nu-7bo">
+                                <rect key="frame" x="40" y="610" width="520" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56e-lF-uLi" userLabel="register" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="520" height="40"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="UOJ-9A-h5n"/>
+                                        </constraints>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.67843137249999996" green="0.69019607839999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                <color key="value" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D57-gT-Np9" userLabel="login" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="520" height="40"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="iRn-PH-jSY"/>
+                                        </constraints>
+                                        <state key="normal" title="Log in">
+                                            <color key="titleColor" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.67843137249999996" green="0.69019607839999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                <color key="value" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="D57-gT-Np9" secondAttribute="trailing" id="AR1-GC-1Rr"/>
+                                    <constraint firstItem="D57-gT-Np9" firstAttribute="top" secondItem="56e-lF-uLi" secondAttribute="bottom" constant="20" id="Is3-XC-jXo"/>
+                                    <constraint firstItem="D57-gT-Np9" firstAttribute="leading" secondItem="NgI-nu-7bo" secondAttribute="leading" id="JYO-yw-es2"/>
+                                    <constraint firstAttribute="trailing" secondItem="56e-lF-uLi" secondAttribute="trailing" id="YpB-8b-bvE"/>
+                                    <constraint firstItem="56e-lF-uLi" firstAttribute="top" secondItem="NgI-nu-7bo" secondAttribute="top" id="e3H-eJ-TAO"/>
+                                    <constraint firstAttribute="bottom" secondItem="D57-gT-Np9" secondAttribute="bottom" id="wb5-CS-Bfq"/>
+                                    <constraint firstItem="56e-lF-uLi" firstAttribute="leading" secondItem="NgI-nu-7bo" secondAttribute="leading" id="ywk-Qb-5TO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YIN-M7-QX5" firstAttribute="top" secondItem="NgI-nu-7bo" secondAttribute="bottom" priority="990" constant="160" id="0tP-4e-xs3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NgI-nu-7bo" secondAttribute="bottom" constant="-110" id="B12-dF-2Wq"/>
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="centerY" secondItem="C6m-Qy-Yvh" secondAttribute="centerY" id="J6f-yH-e0z"/>
+                            <constraint firstItem="NgI-nu-7bo" firstAttribute="leading" secondItem="C6m-Qy-Yvh" secondAttribute="leadingMargin" constant="20" id="Ul1-s7-fHd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NgI-nu-7bo" secondAttribute="trailing" constant="20" id="b9t-zR-tgP"/>
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="centerX" secondItem="C6m-Qy-Yvh" secondAttribute="centerX" id="mj8-24-hhV"/>
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="top" secondItem="6Fk-AL-PQ2" secondAttribute="bottom" priority="999" constant="80" id="rpV-of-AJF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomButtonViewConstraint" destination="B12-dF-2Wq" id="Bwl-ay-p54"/>
                         <outlet property="imageHeightConstraint" destination="VI8-Ui-r3q" id="JL6-UH-q7e"/>
                         <outlet property="imageWidthConstraint" destination="skn-e0-zN7" id="oSR-Ec-cTc"/>
                         <outlet property="logoImageView" destination="nLh-XM-5dP" id="Vdd-Xw-XX4"/>

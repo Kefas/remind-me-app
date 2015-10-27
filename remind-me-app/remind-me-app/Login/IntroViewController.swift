@@ -15,6 +15,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var bottomButtonViewConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         logoImageView.alpha = 0
@@ -35,11 +36,15 @@ class IntroViewController: UIViewController {
         self.verticalCenterConstraint.active = false
         self.imageHeightConstraint.constant = 150
         self.imageWidthConstraint.constant = 150
-
-        UIView.animateWithDuration(2.0, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+        
+        UIView.animateWithDuration(1.5, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
             self.view.layoutIfNeeded()
             }) { (Bool) -> Void in
-                
+                self.bottomButtonViewConstraint.active = false
+                UIView.beginAnimations(nil, context: nil)
+                UIView.setAnimationDuration(1.0)
+                self.view.layoutIfNeeded()
+                UIView.commitAnimations()
         }
     }
 }
