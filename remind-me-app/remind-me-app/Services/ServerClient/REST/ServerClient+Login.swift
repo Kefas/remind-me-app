@@ -24,7 +24,7 @@ extension ServerClient {
     
     internal func login(email  email: String, password: String, completion: (NSError?) -> Void) {
         executePOST("/users/login",
-            params: ["email": email, "password": password],
+            params: ["mail": email, "password": password],
             success: {
                 (response) in
                 completion(nil)
