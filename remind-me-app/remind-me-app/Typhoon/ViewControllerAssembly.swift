@@ -11,11 +11,12 @@ import UIKit
 class ViewControllerAssembly: TyphoonAssembly {
 
     var applicationAssembly: ApplicationAssembly!
+    var serviceAssembly: ServiceAssembly!
+    var modelAssembly: ModelAssembly!
     
      dynamic func registerViewController() -> AnyObject {
-        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "RegisterViewController")
-        
-        return controller
+        let definition = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "RegisterViewController")
+        return definition
     }
     
      dynamic func loginViewController() -> AnyObject {
@@ -27,7 +28,8 @@ class ViewControllerAssembly: TyphoonAssembly {
      dynamic func introViewController() -> AnyObject {
         return TyphoonDefinition.withClass(IntroViewController.self) {
             (definition) in
-                    definition.injectProperty("viewControllerAssembly", with: self)
+            definition.injectProperty("model", with: self.modelAssembly.loginRegisterModel())
+            definition.injectProperty("viewControllerAssembly", with: self)
         
         }
     }

@@ -98,9 +98,15 @@
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="centerY" secondItem="C6m-Qy-Yvh" secondAttribute="centerY" id="J6f-yH-e0z"/>
                             <constraint firstItem="NgI-nu-7bo" firstAttribute="leading" secondItem="C6m-Qy-Yvh" secondAttribute="leadingMargin" constant="20" id="Ul1-s7-fHd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NgI-nu-7bo" secondAttribute="trailing" constant="20" id="b9t-zR-tgP"/>
+                            <constraint firstItem="nLh-XM-5dP" firstAttribute="top" secondItem="C6m-Qy-Yvh" secondAttribute="topMargin" priority="999" constant="80" id="fRG-yq-tDK"/>
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="centerX" secondItem="C6m-Qy-Yvh" secondAttribute="centerX" id="mj8-24-hhV"/>
                             <constraint firstItem="nLh-XM-5dP" firstAttribute="top" secondItem="6Fk-AL-PQ2" secondAttribute="bottom" priority="999" constant="80" id="rpV-of-AJF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rpV-of-AJF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bottomButtonViewConstraint" destination="B12-dF-2Wq" id="Bwl-ay-p54"/>
@@ -244,6 +250,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.67843137254901964" green="0.69019607843137254" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPasswordPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLB-DA-XWm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-O0-bXl" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
                                         <rect key="frame" x="20" y="448" width="560" height="41"/>
@@ -264,6 +273,21 @@
                                                 <color key="value" red="0.11372549019607843" green="0.32941176470588235" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eau-qf-ccg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyD-Xi-rkN">
+                                        <rect key="frame" x="20" y="30" width="15" height="15"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="QLp-hP-2Hk"/>
+                                            <constraint firstAttribute="height" constant="15" id="iQS-dV-ehQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eji-zR-xzV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -279,8 +303,10 @@
                                     <constraint firstItem="TxI-Wu-4QY" firstAttribute="leading" secondItem="OWe-TQ-0Cl" secondAttribute="leading" constant="20" id="dBe-bm-lah"/>
                                     <constraint firstItem="a56-GH-cYY" firstAttribute="top" secondItem="TxI-Wu-4QY" secondAttribute="bottom" constant="25" id="l8e-o8-b7A"/>
                                     <constraint firstAttribute="trailing" secondItem="tM2-O0-bXl" secondAttribute="trailing" constant="20" id="lIz-MR-bQb"/>
+                                    <constraint firstItem="tyD-Xi-rkN" firstAttribute="leading" secondItem="OWe-TQ-0Cl" secondAttribute="leading" constant="20" id="oLN-el-8mE"/>
                                     <constraint firstItem="tM2-O0-bXl" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="sox-9I-Jam"/>
                                     <constraint firstItem="ChJ-PD-XFS" firstAttribute="top" secondItem="OWe-TQ-0Cl" secondAttribute="top" constant="80" id="spc-Ag-HpE"/>
+                                    <constraint firstItem="tyD-Xi-rkN" firstAttribute="top" secondItem="OWe-TQ-0Cl" secondAttribute="top" constant="30" id="z1H-2F-LHY"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -302,6 +328,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="fbr-Qj-AUI" id="czY-Hz-24W"/>
+                        <outlet property="passwordTextField" destination="oUy-f7-dZi" id="53Y-kq-O23"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -490,6 +520,21 @@
                                                 <color key="value" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="Rux-dg-VdR" eventType="touchUpInside" id="CC7-Yg-WBh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wQ-7j-f1x">
+                                        <rect key="frame" x="20" y="30" width="15" height="15"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="nM0-Re-a0e"/>
+                                            <constraint firstAttribute="height" constant="15" id="pDE-pf-lyp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="close"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="Rux-dg-VdR" eventType="touchUpInside" id="UTH-yf-tTK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -497,10 +542,12 @@
                                     <constraint firstAttribute="trailing" secondItem="si9-09-qFY" secondAttribute="trailing" constant="20" id="A32-Ba-AKR"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="top" secondItem="frt-tM-tFF" secondAttribute="bottom" constant="40" id="KmM-sP-1yH"/>
                                     <constraint firstAttribute="trailing" secondItem="9Y6-bv-xke" secondAttribute="trailing" constant="20" id="LwP-ua-QRH"/>
+                                    <constraint firstItem="8wQ-7j-f1x" firstAttribute="leading" secondItem="9t0-Fl-bQr" secondAttribute="leading" constant="20" id="REZ-AZ-Syj"/>
                                     <constraint firstItem="9Y6-bv-xke" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="WOb-pH-jYO"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="leading" secondItem="9t0-Fl-bQr" secondAttribute="leading" constant="20" id="ZdR-be-lwo"/>
                                     <constraint firstItem="frt-tM-tFF" firstAttribute="top" secondItem="9t0-Fl-bQr" secondAttribute="top" constant="80" id="g7a-jj-Pg8"/>
                                     <constraint firstAttribute="bottom" secondItem="9Y6-bv-xke" secondAttribute="bottom" priority="999" constant="50" id="ixv-uq-foB"/>
+                                    <constraint firstItem="8wQ-7j-f1x" firstAttribute="top" secondItem="9t0-Fl-bQr" secondAttribute="top" constant="30" id="ljS-K3-RMN"/>
                                     <constraint firstItem="frt-tM-tFF" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="mqK-Xe-3U1"/>
                                     <constraint firstItem="9Y6-bv-xke" firstAttribute="top" secondItem="si9-09-qFY" secondAttribute="bottom" constant="40" id="rsx-NP-2BN"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="u4W-0P-maz"/>
@@ -526,6 +573,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="9QI-nR-dGZ" id="NEd-hY-0OL"/>
+                        <outlet property="emailTextField" destination="ysI-CM-ed0" id="2ag-Su-M9w"/>
+                        <outlet property="passwordTextField" destination="WbS-ye-TuH" id="bYh-Ov-NwT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-Vg-omz" sceneMemberID="firstResponder"/>
             </objects>
@@ -534,6 +586,7 @@
     </scenes>
     <resources>
         <image name="Logo" width="391" height="414"/>
+        <image name="close" width="29" height="29"/>
         <image name="email" width="27" height="27"/>
         <image name="password" width="27" height="27"/>
     </resources>

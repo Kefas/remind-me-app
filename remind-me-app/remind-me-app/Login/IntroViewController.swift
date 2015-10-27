@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, RegisterViewControllerDelegate, LoginViewControllerDelegate {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
@@ -16,7 +16,8 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomButtonViewConstraint: NSLayoutConstraint!
    
-     var viewControllerAssembly: ViewControllerAssembly?
+    var viewControllerAssembly: ViewControllerAssembly?
+    var model: LoginRegisterModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +53,40 @@ class IntroViewController: UIViewController {
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
         let registerController: RegisterViewController = viewControllerAssembly!.registerViewController() as! RegisterViewController
+        registerController.delegate = self
         presentViewController(registerController, animated: true, completion: nil)
     }
     
  
     @IBAction func loginButtonPressed(sender: AnyObject) {
         let loginViewController: LoginViewController = viewControllerAssembly!.loginViewController() as! LoginViewController
+        loginViewController.delegate = self
         presentViewController(loginViewController, animated: true, completion: nil)
     }
+    
+    func registerUser(registerData: RegisterUserDTO) {
+        
+        model.registerUser(registerData, completion: {
+            (error: NSError?) -> Void in
+            if error != nil {
+              
+            } else {
+           
+            }
+        })
+    }
+    
+    func loginUserWithEmail(email: String, andPassword password: String) {
+    
+        model.loginUser(email: email, password: password) {
+            (error: NSError?) -> Void in
+          
+        }
+    }
+    
+    func loginViewController(controller: LoginViewController, forgotPasswordForEmail email: String?) {
+       
+    }
+
     
 }

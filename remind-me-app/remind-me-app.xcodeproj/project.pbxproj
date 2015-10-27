@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */; };
+		7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C6751BDFCD59004A14E4 /* ServerClient.swift */; };
+		7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */; };
+		7229C67A1BDFDA76004A14E4 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C6791BDFDA76004A14E4 /* ServiceAssembly.swift */; };
+		7229C67C1BDFDDAC004A14E4 /* RegisterUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */; };
+		7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */; };
+		7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */; };
 		72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BED5881BDD5C75008C185B /* Assets.xcassets */; };
 		72BED5971BDD5C75008C185B /* remind_me_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5961BDD5C75008C185B /* remind_me_appTests.swift */; };
 		72BED5A21BDD5C76008C185B /* remind_me_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5A11BDD5C76008C185B /* remind_me_appUITests.swift */; };
@@ -45,6 +51,12 @@
 /* Begin PBXFileReference section */
 		0075400197A16FAC270FDB58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		7229C6751BDFCD59004A14E4 /* ServerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerClient.swift; sourceTree = "<group>"; };
+		7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerClient+Login.swift"; sourceTree = "<group>"; };
+		7229C6791BDFDA76004A14E4 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserDTO.swift; sourceTree = "<group>"; };
+		7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssembly.swift; sourceTree = "<group>"; };
+		7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterModel.swift; sourceTree = "<group>"; };
 		72BED57E1BDD5C75008C185B /* remind-me-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "remind-me-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BED5881BDD5C75008C185B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72BED5921BDD5C75008C185B /* remind-me-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "remind-me-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +139,8 @@
 				EE266C4E5D4503A3254B8DC3 /* Views */,
 				EE266B2714FEB88E4147985A /* Login */,
 				72BED5BC1BDD720E008C185B /* CALayerExtension.swift */,
+				EE26676D14E23880997C8C1C /* Services */,
+				EE266DFD891EDCA19D1BB02C /* Models */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -166,6 +180,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE2661B954162070BD2D3A1F /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				7229C6751BDFCD59004A14E4 /* ServerClient.swift */,
+				7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
+		EE2666B61C9F4F3735DAEA1A /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */,
+				7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		EE26676D14E23880997C8C1C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE266D4FB985F61BAB0595B4 /* ServerClient */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		EE2667E77BC9817C7DFBC7AE /* BorderedButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +220,8 @@
 				72BED5B41BDD647D008C185B /* TyphoonDefinitionExtension.swift */,
 				72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */,
 				72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */,
+				7229C6791BDFDA76004A14E4 /* ServiceAssembly.swift */,
+				7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */,
 			);
 			path = Typhoon;
 			sourceTree = "<group>";
@@ -213,6 +255,22 @@
 				72DC7B531BDE889800300E9C /* GlobalConstants.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE266D4FB985F61BAB0595B4 /* ServerClient */ = {
+			isa = PBXGroup;
+			children = (
+				EE2661B954162070BD2D3A1F /* REST */,
+			);
+			path = ServerClient;
+			sourceTree = "<group>";
+		};
+		EE266DFD891EDCA19D1BB02C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE2666B61C9F4F3735DAEA1A /* DTO */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,14 +456,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */,
+				7229C67A1BDFDA76004A14E4 /* ServiceAssembly.swift in Sources */,
+				7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */,
 				72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */,
+				7229C67C1BDFDDAC004A14E4 /* RegisterUserDTO.swift in Sources */,
 				72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */,
 				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
 				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
+				7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */,
 				721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
+				7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,
+				7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */,
 				72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

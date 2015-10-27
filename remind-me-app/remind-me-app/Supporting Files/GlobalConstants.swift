@@ -16,5 +16,9 @@ struct GlobalConstants {
         static let BasicBlueColor = UIColor(red: 28.0 / 255.0, green: 43.0 / 255.0, blue: 124.0 / 255.0, alpha: 1.0)
     }
     
+    struct Networking {
+        static let RemindMeServerURL = "https://murmuring-temple-1693.herokuapp.com"
+    }
+    
 }
 

@@ -24,6 +24,8 @@
 	<true/>
 	<key>TyphoonInitialAssemblies</key>
 	<array>
+		<string>ModelAssembly</string>
+		<string>ServiceAssembly</string>
 		<string>ApplicationAssembly</string>
 		<string>ViewControllerAssembly</string>
 	</array>
