@@ -11,8 +11,7 @@ import UIKit
 extension TyphoonDefinition {
     
     class func withStoryboard(storyboard: AnyObject, storyboardID: String) -> TyphoonDefinition {
-        return TyphoonDefinition.withFactory(storyboard, selector: "instantiateViewControllerWithIdentifier:", parameters: {
-            (factoryMethod) in
+        return TyphoonDefinition.withFactory(storyboard, selector: "instantiateViewControllerWithIdentifier:", parameters: {(factoryMethod) in
             factoryMethod.injectParameterWith(storyboardID)
         }) as! TyphoonDefinition
     }

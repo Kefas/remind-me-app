@@ -10,6 +10,8 @@
 #define remind_me_app_Bridging_Header_h
 
 #import "Typhoon.h"
+#import "TyphoonPatcher.h"
+#import "TyphoonAssemblyActivator.h"
 #import "TPKeyboardAvoidingScrollView.h"
 
 #endif /* remind_me_Bridging_Header_h */

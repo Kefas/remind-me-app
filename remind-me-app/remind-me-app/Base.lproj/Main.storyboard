@@ -8,7 +8,7 @@
         <!--Intro View Controller-->
         <scene sceneID="YMT-l8-N0j">
             <objects>
-                <viewController id="AS8-Fy-EPY" customClass="IntroViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroViewController" id="AS8-Fy-EPY" customClass="IntroViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Fk-AL-PQ2"/>
                         <viewControllerLayoutGuide type="bottom" id="YIN-M7-QX5"/>
@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nLh-XM-5dP">
-                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nLh-XM-5dP">
+                                <rect key="frame" x="185" y="185" width="230" height="230"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="VI8-Ui-r3q"/>
-                                    <constraint firstAttribute="width" constant="250" id="skn-e0-zN7"/>
+                                    <constraint firstAttribute="height" constant="230" id="VI8-Ui-r3q"/>
+                                    <constraint firstAttribute="width" constant="230" id="skn-e0-zN7"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgI-nu-7bo">
@@ -48,6 +48,9 @@
                                                 <color key="value" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="AS8-Fy-EPY" eventType="touchUpInside" id="roK-X5-g7N"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D57-gT-Np9" userLabel="login" customClass="BorderedButton" customModule="remind_me_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="60" width="520" height="40"/>
@@ -69,6 +72,9 @@
                                                 <color key="value" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="AS8-Fy-EPY" eventType="touchUpInside" id="9PP-EW-gJK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -111,7 +117,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -304,7 +310,7 @@
         <!--Register View Controller-->
         <scene sceneID="21c-uE-Tk7">
             <objects>
-                <viewController id="Rux-dg-VdR" customClass="RegisterViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="Rux-dg-VdR" customClass="RegisterViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KjO-8n-Lf9"/>
                         <viewControllerLayoutGuide type="bottom" id="PQp-sd-1Lk"/>
