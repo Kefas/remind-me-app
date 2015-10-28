@@ -10,8 +10,9 @@ import UIKit
 
 class LoginRegisterModel: NSObject {
 
-  let serverClient: ServerClient
-
+    let serverClient: ServerClient
+    var profileDTO: RegisterUserDTO!
+    
     init(serverClient: ServerClient) {
         self.serverClient = serverClient
     }
@@ -25,9 +26,10 @@ class LoginRegisterModel: NSObject {
     
     func loginUser(email email: String, password: String, completion: (NSError?) -> Void) {
         serverClient.login(email: email, password: password) {
-            (error: NSError?) -> Void in
+            (error: NSError?, data: NSDictionary?) -> Void in
             if error == nil {
                 UICKeyChainStore.setString(password, forKey: "password")
+                self.profileDTO = self.processData(data!)
                 completion(error)
 
             } else {
@@ -35,4 +37,9 @@ class LoginRegisterModel: NSObject {
             }
         }
     }
+    
+    private func processData(json: NSDictionary) -> RegisterUserDTO {
+        return RegisterUserDTO(id: json["id"] as! Int, email: json["mail"] as! String, password: json["password"] as! String, token: json["token"] as! String)
+    }
+
 }

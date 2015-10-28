@@ -71,7 +71,7 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
             if error != nil {
               
             } else {
-           
+                self.showRootController()
             }
         })
     }
@@ -80,7 +80,12 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
     
         model.loginUser(email: email, password: password) {
             (error: NSError?) -> Void in
-          
+            if(error != nil) {
+                
+            }
+            else {
+                self.showRootController()
+            }
         }
     }
     
@@ -88,5 +93,12 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
        
     }
 
+    func showRootController() {
+       // self.presentedViewController?.dismissViewControllerAnimated(true, completion:
+       self.presentedViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
+        let controller: ViewController = self.viewControllerAssembly?.viewController() as! ViewController
+        self.showViewController(controller, sender: nil)
+        })
+    }
     
 }

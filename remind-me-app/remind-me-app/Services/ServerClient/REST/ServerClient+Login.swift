@@ -22,16 +22,17 @@ extension ServerClient {
         )
     }
     
-    internal func login(email  email: String, password: String, completion: (NSError?) -> Void) {
+    internal func login(email  email: String, password: String, completion: (NSError?, NSDictionary?) -> Void) {
+        let dict = ["user": ["mail": email, "password": password]]
         executePOST("/users/login",
-            params: ["mail": email, "password": password],
+            params: dict,
             success: {
                 (response) in
-                completion(nil)
+                completion(nil, response as? NSDictionary)
             },
             failure: {
                 (error) in
-                completion(error)
+                completion(error, nil)
         })
     }
     

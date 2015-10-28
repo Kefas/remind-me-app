@@ -11,17 +11,15 @@ import UIKit
 class RegisterUserDTO {
     
     let id: Int?
-    let firstName: String?
-    let lastName: String?
     let email: String
     let password: String
+    let token: String?
     
-    init(id:Int, firstName: String, lastName: String, email: String, password: String ) {
+    init(id:Int, email: String, password: String, token: String ) {
         self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
         self.email = email
         self.password = password
+        self.token = token
     }
 
 }

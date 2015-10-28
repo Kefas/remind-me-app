@@ -14,6 +14,8 @@
 		7229C67C1BDFDDAC004A14E4 /* RegisterUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */; };
 		7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */; };
 		7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */; };
+		72A96E731BE132F000B55F0D /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A96E721BE132F000B55F0D /* UserProfileDTO.swift */; };
+		72A96E751BE135C200B55F0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A96E741BE135C200B55F0D /* ViewController.swift */; };
 		72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BED5881BDD5C75008C185B /* Assets.xcassets */; };
 		72BED5971BDD5C75008C185B /* remind_me_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5961BDD5C75008C185B /* remind_me_appTests.swift */; };
 		72BED5A21BDD5C76008C185B /* remind_me_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5A11BDD5C76008C185B /* remind_me_appUITests.swift */; };
@@ -56,7 +58,9 @@
 		7229C6791BDFDA76004A14E4 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserDTO.swift; sourceTree = "<group>"; };
 		7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssembly.swift; sourceTree = "<group>"; };
-		7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterModel.swift; sourceTree = "<group>"; };
+		7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegisterModel.swift; path = DTO/LoginRegisterModel.swift; sourceTree = "<group>"; };
+		72A96E721BE132F000B55F0D /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
+		72A96E741BE135C200B55F0D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		72BED57E1BDD5C75008C185B /* remind-me-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "remind-me-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BED5881BDD5C75008C185B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72BED5921BDD5C75008C185B /* remind-me-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "remind-me-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,7 @@
 				72BED5BC1BDD720E008C185B /* CALayerExtension.swift */,
 				EE26676D14E23880997C8C1C /* Services */,
 				EE266DFD891EDCA19D1BB02C /* Models */,
+				72A96E741BE135C200B55F0D /* ViewController.swift */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -193,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */,
-				7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */,
+				72A96E721BE132F000B55F0D /* UserProfileDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 		EE266DFD891EDCA19D1BB02C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */,
 				EE2666B61C9F4F3735DAEA1A /* DTO */,
 			);
 			path = Models;
@@ -461,11 +467,13 @@
 				72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */,
 				7229C67C1BDFDDAC004A14E4 /* RegisterUserDTO.swift in Sources */,
 				72BED5B51BDD647D008C185B /* TyphoonDefinitionExtension.swift in Sources */,
+				72A96E731BE132F000B55F0D /* UserProfileDTO.swift in Sources */,
 				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
 				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
 				7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */,
 				721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
+				72A96E751BE135C200B55F0D /* ViewController.swift in Sources */,
 				7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,

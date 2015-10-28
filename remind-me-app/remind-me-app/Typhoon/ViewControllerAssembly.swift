@@ -33,5 +33,10 @@ class ViewControllerAssembly: TyphoonAssembly {
         
         }
     }
+    
+    dynamic func viewController() -> AnyObject {
+        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "ViewController")
+        return controller
+    }
 
 }

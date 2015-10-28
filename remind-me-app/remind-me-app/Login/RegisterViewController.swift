@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
     private func constructDataFromForm() -> RegisterUserDTO {
         let email = emailTextField.text
         let password = passwordTextField.text
-        return RegisterUserDTO(id: 0, firstName: "", lastName: "", email: email!, password: password!)
+        return RegisterUserDTO(id: 0, email: email!, password: password!, token: "")
     }
    
 }
