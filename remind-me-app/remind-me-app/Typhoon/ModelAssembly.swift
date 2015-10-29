@@ -18,6 +18,17 @@ class ModelAssembly: TyphoonAssembly {
             (initializer: TyphoonMethod!) -> Void in
             initializer.injectParameterWith(self.serviceAssembly.serverClient())
         })
+        definition.scope = .Singleton
+        return definition
+    }
+    
+    dynamic func noteModel() -> AnyObject {
+        let definition: TyphoonDefinition! = TyphoonDefinition.withClass(NoteModel.self) as! TyphoonDefinition
+        definition.useInitializer("initWithServerClient:", parameters: {
+            (initializer: TyphoonMethod!) -> Void in
+            initializer.injectParameterWith(self.serviceAssembly.serverClient())
+        })
+        definition.scope = .Singleton
         return definition
     }
     

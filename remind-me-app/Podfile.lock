@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - THNotesTextView (1.0.0)
   - TPKeyboardAvoiding (1.2.10)
   - Typhoon (3.3.4):
     - Typhoon/no-arc (= 3.3.4)
@@ -28,12 +29,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - THNotesTextView (~> 1.0.0)
   - TPKeyboardAvoiding (~> 1.2.3)
   - Typhoon (~> 3.3)
   - UICKeyChainStore
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  THNotesTextView: 0475557522ae8786fb3ed961a05bf5d8c292d266
   TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
   Typhoon: 555e580d7edaaf61c5367c2a80c15a0ddb368406
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432

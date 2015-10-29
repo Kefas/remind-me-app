@@ -34,8 +34,11 @@ class ViewControllerAssembly: TyphoonAssembly {
         }
     }
     
-    dynamic func viewController() -> AnyObject {
-        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "ViewController")
+    dynamic func addNoteViewController() -> AnyObject {
+        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "AddNoteViewController")
+         controller.injectProperty("viewControllerAssembly", with: self)
+        controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
+        controller.injectProperty("noteModel", with: self.modelAssembly.noteModel())
         return controller
     }
 

@@ -16,4 +16,6 @@
 #import <AFNetworking.h>
 #import "AFNetworkActivityIndicatorManager.h"
 #import <UICKeyChainStore.h>
+#import "THNotesTextView.h"
+
 #endif /* remind_me_Bridging_Header_h */

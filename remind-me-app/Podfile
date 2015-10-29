@@ -5,3 +5,4 @@ pod 'Typhoon', '~> 3.3'
 pod 'TPKeyboardAvoiding', '~> 1.2.3'
 pod "AFNetworking", "~> 2.0"
 pod 'UICKeyChainStore'
+pod 'THNotesTextView', '~> 1.0.0'

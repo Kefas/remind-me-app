@@ -94,10 +94,10 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
     }
 
     func showRootController() {
-       // self.presentedViewController?.dismissViewControllerAnimated(true, completion:
        self.presentedViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
-        let controller: ViewController = self.viewControllerAssembly?.viewController() as! ViewController
-        self.showViewController(controller, sender: nil)
+        let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
+        let nv = UINavigationController(rootViewController: controller)
+        self.showViewController(nv, sender: nil)
         })
     }
     

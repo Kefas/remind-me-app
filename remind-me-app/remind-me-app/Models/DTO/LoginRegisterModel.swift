@@ -11,7 +11,7 @@ import UIKit
 class LoginRegisterModel: NSObject {
 
     let serverClient: ServerClient
-    var profileDTO: RegisterUserDTO!
+    var profileDTO: UserProfileDTO!
     
     init(serverClient: ServerClient) {
         self.serverClient = serverClient
@@ -38,8 +38,17 @@ class LoginRegisterModel: NSObject {
         }
     }
     
-    private func processData(json: NSDictionary) -> RegisterUserDTO {
-        return RegisterUserDTO(id: json["id"] as! Int, email: json["mail"] as! String, password: json["password"] as! String, token: json["token"] as! String)
+    private func processData(json: NSDictionary) -> UserProfileDTO {
+      
+        return UserProfileDTO(id: json["id"] as! Int, email: json["mail"] as! String, password: json["password"] as! String, token: json["token"] as! String, firstName: "" , lastName: "" )
+    }
+    
+    func nullToNil(value : AnyObject?) -> AnyObject? {
+        if value is NSNull {
+            return nil
+        } else {
+            return value
+        }
     }
 
 }

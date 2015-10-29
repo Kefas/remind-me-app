@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AS8-Fy-EPY">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -120,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="-1071" y="627"/>
         </scene>
-        <!--View Controller-->
+        <!--Add note-->
         <scene sceneID="em2-7Q-cu0">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="a7O-OI-xDB" customClass="ViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" id="a7O-OI-xDB" customClass="AddNoteViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BDw-db-mOy"/>
                         <viewControllerLayoutGuide type="bottom" id="gZB-31-Fkg"/>
@@ -132,25 +133,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cq-cE-IgC">
-                                <rect key="frame" x="281" y="290" width="39" height="21"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="so2-7P-VTd" customClass="THNotesTextView">
+                                <rect key="frame" x="20" y="64" width="560" height="446"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="V2j-AQ-zvI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="V2j-AQ-zvI"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5Y-op-At3">
+                                <rect key="frame" x="0.0" y="320" width="600" height="280"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="obu-aM-SDe">
+                                        <rect key="frame" x="10" y="60" width="580" height="210"/>
+                                        <animations/>
+                                        <date key="date" timeIntervalSinceReferenceDate="467807443.01356298">
+                                            <!--2015-10-29 10:30:43 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u4H-Sz-omp">
+                                        <rect key="frame" x="225" y="10" width="151" height="31"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="xzN-As-KBY"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Start date"/>
+                                            <segment title="End date"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="obu-aM-SDe" firstAttribute="top" secondItem="u4H-Sz-omp" secondAttribute="bottom" constant="20" id="66z-st-nyj"/>
+                                    <constraint firstItem="u4H-Sz-omp" firstAttribute="centerX" secondItem="N5Y-op-At3" secondAttribute="centerX" id="7yG-qr-f4S"/>
+                                    <constraint firstItem="u4H-Sz-omp" firstAttribute="top" secondItem="N5Y-op-At3" secondAttribute="top" constant="10" id="VVU-2C-dbq"/>
+                                    <constraint firstAttribute="height" constant="280" id="eWI-zz-ud5"/>
+                                    <constraint firstAttribute="trailing" secondItem="obu-aM-SDe" secondAttribute="trailing" constant="10" id="fbM-k5-1w8"/>
+                                    <constraint firstItem="obu-aM-SDe" firstAttribute="leading" secondItem="N5Y-op-At3" secondAttribute="leading" constant="10" id="hTK-80-IEq"/>
+                                    <constraint firstAttribute="bottom" secondItem="obu-aM-SDe" secondAttribute="bottom" constant="10" id="jqh-ua-YhB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.10980392160000001" green="0.16862745100000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4Cq-cE-IgC" firstAttribute="centerY" secondItem="AbI-zE-HGd" secondAttribute="centerY" id="7HG-td-szH"/>
-                            <constraint firstItem="4Cq-cE-IgC" firstAttribute="centerX" secondItem="AbI-zE-HGd" secondAttribute="centerX" id="AdB-mI-WDI"/>
+                            <constraint firstItem="so2-7P-VTd" firstAttribute="leading" secondItem="AbI-zE-HGd" secondAttribute="leading" constant="20" id="7rO-nm-Y36"/>
+                            <constraint firstItem="gZB-31-Fkg" firstAttribute="top" secondItem="so2-7P-VTd" secondAttribute="bottom" constant="90" id="9NP-G7-1MD"/>
+                            <constraint firstItem="gZB-31-Fkg" firstAttribute="top" secondItem="N5Y-op-At3" secondAttribute="bottom" id="J0P-6u-Xt4"/>
+                            <constraint firstItem="gZB-31-Fkg" firstAttribute="top" secondItem="so2-7P-VTd" secondAttribute="bottom" id="Jky-9W-L6g"/>
+                            <constraint firstAttribute="trailing" secondItem="so2-7P-VTd" secondAttribute="trailing" constant="20" id="bU0-er-jnY"/>
+                            <constraint firstItem="so2-7P-VTd" firstAttribute="top" secondItem="BDw-db-mOy" secondAttribute="bottom" id="d0A-bG-GZM"/>
+                            <constraint firstItem="N5Y-op-At3" firstAttribute="leading" secondItem="AbI-zE-HGd" secondAttribute="leading" id="iWE-8S-itO"/>
+                            <constraint firstAttribute="trailing" secondItem="N5Y-op-At3" secondAttribute="trailing" id="mwp-6E-BBD"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Jky-9W-L6g"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Add note" id="vCg-3M-y2L">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Xdh-Wi-NLq">
+                            <connections>
+                                <action selector="saveNoteButtonPressed:" destination="a7O-OI-xDB" id="wj8-KT-nGa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="obu-aM-SDe" id="djV-11-0av"/>
+                        <outlet property="noteText" destination="so2-7P-VTd" id="eKj-tE-RrN"/>
+                        <outlet property="startEndDatePicker" destination="u4H-Sz-omp" id="yE6-to-f4x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pev-hG-ikr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1150" y="1309"/>
+            <point key="canvasLocation" x="-302" y="1316"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -613,7 +682,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-Vg-omz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-405" y="1204"/>
+            <point key="canvasLocation" x="407" y="1204"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h6M-dd-V5u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ULF-jV-hyf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ERQ-EZ-MXi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a7O-OI-xDB" kind="relationship" relationship="rootViewController" id="GH0-z6-94J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJR-bZ-XtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1114" y="1316"/>
         </scene>
     </scenes>
     <resources>
