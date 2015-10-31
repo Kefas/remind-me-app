@@ -8,12 +8,13 @@
 
 import UIKit
 
-class UserNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddNoteViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var viewControllerAssembly: ViewControllerAssembly?
     var loginModel: LoginRegisterModel?
     var noteModel: NoteModel?
+    var leftBarButtonItem: UIBarButtonItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,11 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         setupTableView()
+        setupEditButton()
+    }
+    
+    private func setupEditButton() {
+        navigationItem.rightBarButtonItem = editButtonItem()
     }
     
     func setupTableView() {
@@ -48,4 +54,50 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         return UITableViewAutomaticDimension
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return editing
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.tableView.setEditing(editing, animated: true)
+        self.navigationItem.setLeftBarButtonItem(editing ? UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewItem") : self.leftBarButtonItem, animated: true)
+    }
+    
+    func addNewItem() {
+        let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
+        controller.delegate = self
+        let nv = UINavigationController(rootViewController: controller)
+        self.showViewController(nv, sender: nil)
+    }
+
+    func addNoteViewController(controller: AddNoteViewController, didAddNewNote note: NoteDTO) {
+        noteModel?.saveNote(note, token: (loginModel?.profileDTO.token)!,userId: (loginModel?.profileDTO.id)! , completion: { (error: NSError?) -> Void in
+            if(error != nil) {
+                
+            }
+            else {
+                print("Note saved")
+                self.endEditingAndReload(controller)
+            }
+        })
+    }
+    
+    func endEditingAndReload(controller: AddNoteViewController) {
+        self.setEditing(false, animated: true)
+        self.tableView.reloadData()
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let note = (noteModel?.usersNotes![indexPath.row])! as NoteDTO
+            noteModel?.deleteNote((loginModel?.profileDTO.token)!, userId: (loginModel?.profileDTO.id)!, noteId: note.id!, completion: { (error: NSError?) -> Void in
+                if(error == nil) {
+                    tableView.reloadData()
+                }
+            })
+        }
+    }
+
 }

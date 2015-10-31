@@ -38,5 +38,20 @@ extension ServerClient {
                 completion(error, nil)
         })
     }
+    
+    internal func deleteNote(token: String, userId: Int, noteId: Int, completion: (NSError?) -> Void) {
+        httpClient.requestSerializer.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+        executeDELETE("/reminds/users/\(userId)",
+            params: nil,
+            success: {
+                (response) in
+                completion(nil)
+            },
+            failure: {
+                (error) in
+                completion(error)
+        })
+    }
+
 
 }

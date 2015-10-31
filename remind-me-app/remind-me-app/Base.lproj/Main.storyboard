@@ -205,6 +205,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add note" id="vCg-3M-y2L">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VB9-W0-1DT">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="a7O-OI-xDB" id="Kzy-Sr-0Td"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Xdh-Wi-NLq">
                             <connections>
                                 <action selector="saveNoteButtonPressed:" destination="a7O-OI-xDB" id="wj8-KT-nGa"/>

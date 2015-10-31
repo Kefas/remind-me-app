@@ -23,7 +23,9 @@ class NoteModel: NSObject {
             if error == nil {
                 completion(error)
                 print(data)
-                //fetch notes 
+                self.getUsersNotes(token, userId: userId, completion: { (error: NSError?) -> Void in
+                    completion(error)
+                })
             } else {
                 completion(error)
             }
@@ -63,6 +65,23 @@ class NoteModel: NSObject {
         if let beacon = json["beacon_id"] as? Int {beaconId = beacon} else {beaconId = 0}
         
         return NoteDTO(id: id!, content: content!, startDate: startDate!, endDate: endDate!, recurrence: recurrence!, userId: json["user_id"] as! Int, beaconsId: beaconId!)
+    }
+    
+    
+    func deleteNote(token: String, userId: Int, noteId: Int,  completion: (NSError?) -> Void) {
+        serverClient.deleteNote(token, userId: userId, noteId: noteId) {
+            (error: NSError?) -> Void in
+            if error == nil {
+                completion(error)
+                self.getUsersNotes(token, userId: userId, completion: { (error: NSError?) -> Void in
+                    
+                })
+                
+            } else {
+                completion(error)
+            }
+
+        }
     }
 
 }
