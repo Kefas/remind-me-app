@@ -20,5 +20,8 @@ struct GlobalConstants {
         static let RemindMeServerURL = "https://murmuring-temple-1693.herokuapp.com"
     }
     
+    struct Identifiers {
+        static let UsersNotesId = "UserNotesTableViewCellIdentifier"
+    }
 }
 

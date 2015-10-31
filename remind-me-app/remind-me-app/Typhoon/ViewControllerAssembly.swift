@@ -42,4 +42,12 @@ class ViewControllerAssembly: TyphoonAssembly {
         return controller
     }
 
+    dynamic func userNotesViewController() -> AnyObject {
+        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "UserNotesViewController")
+        controller.injectProperty("viewControllerAssembly", with: self)
+        controller.injectProperty("noteModel", with: self.modelAssembly.noteModel())
+        controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
+        return controller
+    }
+
 }

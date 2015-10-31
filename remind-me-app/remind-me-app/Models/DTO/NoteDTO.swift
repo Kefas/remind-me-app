@@ -11,13 +11,13 @@ import UIKit
 class NoteDTO {
     
     
-    let id: Int
-    let content: String
-    let startDate: String
-    let endDate: String
+    let id: Int?
+    let content: String?
+    let startDate: String?
+    let endDate: String?
     let recurrence: Character?
-    let userId: Int
-    let beaconsId: Int
+    let userId: Int?
+    let beaconsId: Int?
     
     init(id: Int, content: String, startDate: String, endDate: String, recurrence: Character?, userId: Int, beaconsId: Int) {
         self.id = id

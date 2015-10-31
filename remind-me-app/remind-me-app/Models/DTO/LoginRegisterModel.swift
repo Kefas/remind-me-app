@@ -12,6 +12,7 @@ class LoginRegisterModel: NSObject {
 
     let serverClient: ServerClient
     var profileDTO: UserProfileDTO!
+    var noteModel: NoteModel?
     
     init(serverClient: ServerClient) {
         self.serverClient = serverClient
@@ -30,6 +31,9 @@ class LoginRegisterModel: NSObject {
             if error == nil {
                 UICKeyChainStore.setString(password, forKey: "password")
                 self.profileDTO = self.processData(data!)
+                self.noteModel?.getUsersNotes(self.profileDTO.token, userId: self.profileDTO.id, completion: { (error: NSError?) -> Void in
+                    completion(error)
+                })
                 completion(error)
 
             } else {

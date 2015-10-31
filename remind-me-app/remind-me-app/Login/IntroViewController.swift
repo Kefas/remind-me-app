@@ -95,7 +95,7 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
 
     func showRootController() {
        self.presentedViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
-        let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
+        let controller: UserNotesViewController = self.viewControllerAssembly?.userNotesViewController() as! UserNotesViewController
         let nv = UINavigationController(rootViewController: controller)
         self.showViewController(nv, sender: nil)
         })

@@ -18,6 +18,7 @@ class ModelAssembly: TyphoonAssembly {
             (initializer: TyphoonMethod!) -> Void in
             initializer.injectParameterWith(self.serviceAssembly.serverClient())
         })
+        definition.injectProperty("noteModel", with: self.noteModel())
         definition.scope = .Singleton
         return definition
     }

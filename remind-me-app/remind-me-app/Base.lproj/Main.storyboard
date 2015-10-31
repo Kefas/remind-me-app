@@ -221,6 +221,54 @@
             </objects>
             <point key="canvasLocation" x="-302" y="1316"/>
         </scene>
+        <!--My notes-->
+        <scene sceneID="79v-2u-xMc">
+            <objects>
+                <viewController storyboardIdentifier="UserNotesViewController" id="P1d-pC-7iM" customClass="UserNotesViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ixh-VZ-ms1"/>
+                        <viewControllerLayoutGuide type="bottom" id="n0K-9x-gSr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BXB-W2-r1w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="8SH-CL-AHK">
+                                <rect key="frame" x="250" y="84" width="100" height="110"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="1Vz-Zg-khB"/>
+                                    <constraint firstAttribute="width" constant="100" id="hST-3F-0pR"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mpa-tF-QgI">
+                                <rect key="frame" x="0.0" y="224" width="600" height="376"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mpa-tF-QgI" secondAttribute="trailing" id="8eO-zx-rqP"/>
+                            <constraint firstItem="mpa-tF-QgI" firstAttribute="top" secondItem="8SH-CL-AHK" secondAttribute="bottom" constant="30" id="L2X-vZ-GfD"/>
+                            <constraint firstItem="mpa-tF-QgI" firstAttribute="leading" secondItem="BXB-W2-r1w" secondAttribute="leading" id="WbF-nP-ikZ"/>
+                            <constraint firstItem="8SH-CL-AHK" firstAttribute="centerX" secondItem="BXB-W2-r1w" secondAttribute="centerX" id="xEk-t7-6et"/>
+                            <constraint firstItem="8SH-CL-AHK" firstAttribute="top" secondItem="Ixh-VZ-ms1" secondAttribute="bottom" constant="20" id="xdC-c6-kRd"/>
+                            <constraint firstItem="n0K-9x-gSr" firstAttribute="top" secondItem="mpa-tF-QgI" secondAttribute="bottom" id="yEr-qp-Efh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My notes" id="FyY-sN-PV7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="7b1-3S-ksL"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mpa-tF-QgI" id="Hjw-z1-7Xl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOW-gg-H7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="2061"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -703,11 +751,31 @@
             </objects>
             <point key="canvasLocation" x="-1114" y="1316"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PfF-jP-W9d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GiO-XP-L7W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hbN-hp-x4f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P1d-pC-7iM" kind="relationship" relationship="rootViewController" id="fuR-dq-A50"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFU-Q3-0K3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-972" y="2061"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="391" height="414"/>
         <image name="close" width="29" height="29"/>
         <image name="email" width="27" height="27"/>
+        <image name="note" width="170" height="170"/>
         <image name="password" width="27" height="27"/>
     </resources>
 </document>

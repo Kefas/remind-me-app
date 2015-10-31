@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720BD2761BE4D29700117C85 /* UserNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720BD2741BE4D29700117C85 /* UserNotesTableViewCell.swift */; };
+		720BD2771BE4D29700117C85 /* UserNotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720BD2751BE4D29700117C85 /* UserNotesTableViewCell.xib */; };
 		721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */; };
 		7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C6751BDFCD59004A14E4 /* ServerClient.swift */; };
 		7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */; };
@@ -15,7 +17,6 @@
 		7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */; };
 		7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */; };
 		72A96E731BE132F000B55F0D /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A96E721BE132F000B55F0D /* UserProfileDTO.swift */; };
-		72A96E751BE135C200B55F0D /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A96E741BE135C200B55F0D /* AddNoteViewController.swift */; };
 		72BA75B31BE280580067DEAB /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BA75B21BE280580067DEAB /* NoteModel.swift */; };
 		72BA75B51BE280680067DEAB /* NoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BA75B41BE280680067DEAB /* NoteDTO.swift */; };
 		72BA75B71BE282380067DEAB /* ServiceClient+Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BA75B61BE282380067DEAB /* ServiceClient+Notes.swift */; };
@@ -31,9 +32,11 @@
 		72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */; };
 		7DEB4114000D7FCFC1CCBF9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4380BD849F8512C9C7DE7EE /* libPods.a */; };
 		EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2660EE1114206935029112 /* LoginViewController.swift */; };
+		EE2663C0CA4779CC41EB5AF2 /* UserNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE266359E9CC888CA0305720 /* UserNotesViewController.swift */; };
 		EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2661A1FE73F74FCE15A01A /* Main.storyboard */; };
 		EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE26625225DC65D5BAE6C735 /* AppDelegate.swift */; };
 		EE266D896E25FC5F2E34FD59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE266836E8F54F5515708BCA /* LaunchScreen.storyboard */; };
+		EE266EB3EBDF9FC011E5B117 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE266E7D3FD1272E5C0A1DE5 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		0075400197A16FAC270FDB58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		720BD2741BE4D29700117C85 /* UserNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotesTableViewCell.swift; sourceTree = "<group>"; };
+		720BD2751BE4D29700117C85 /* UserNotesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNotesTableViewCell.xib; sourceTree = "<group>"; };
 		721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		7229C6751BDFCD59004A14E4 /* ServerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerClient.swift; sourceTree = "<group>"; };
 		7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerClient+Login.swift"; sourceTree = "<group>"; };
@@ -63,7 +68,6 @@
 		7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssembly.swift; sourceTree = "<group>"; };
 		7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegisterModel.swift; path = DTO/LoginRegisterModel.swift; sourceTree = "<group>"; };
 		72A96E721BE132F000B55F0D /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
-		72A96E741BE135C200B55F0D /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		72BA75B21BE280580067DEAB /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		72BA75B41BE280680067DEAB /* NoteDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDTO.swift; sourceTree = "<group>"; };
 		72BA75B61BE282380067DEAB /* ServiceClient+Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServiceClient+Notes.swift"; sourceTree = "<group>"; };
@@ -86,9 +90,11 @@
 		EE2660EE1114206935029112 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EE2661C1D9D5AC3D7D8711F9 /* remind-me-app-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "remind-me-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		EE26625225DC65D5BAE6C735 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE266359E9CC888CA0305720 /* UserNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotesViewController.swift; sourceTree = "<group>"; };
 		EE2664BFCEA1F7CEB9C6703F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "remind-me-app/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		EE26657920D6976242027662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "remind-me-app/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		EE2667DFB15025E0F5EAF930 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		EE266E7D3FD1272E5C0A1DE5 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		F4380BD849F8512C9C7DE7EE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,7 +157,7 @@
 				72BED5BC1BDD720E008C185B /* CALayerExtension.swift */,
 				EE26676D14E23880997C8C1C /* Services */,
 				EE266DFD891EDCA19D1BB02C /* Models */,
-				72A96E741BE135C200B55F0D /* AddNoteViewController.swift */,
+				EE2661F7D960F2429F0AB993 /* Notes */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -199,6 +205,25 @@
 				72BA75B61BE282380067DEAB /* ServiceClient+Notes.swift */,
 			);
 			path = REST;
+			sourceTree = "<group>";
+		};
+		EE2661F7D960F2429F0AB993 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				EE266359E9CC888CA0305720 /* UserNotesViewController.swift */,
+				EE266E7D3FD1272E5C0A1DE5 /* AddNoteViewController.swift */,
+				EE2665417E789DD6ED472D73 /* Cells */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		EE2665417E789DD6ED472D73 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				720BD2741BE4D29700117C85 /* UserNotesTableViewCell.swift */,
+				720BD2751BE4D29700117C85 /* UserNotesTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		EE2666B61C9F4F3735DAEA1A /* DTO */ = {
@@ -397,6 +422,7 @@
 			files = (
 				72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */,
 				EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */,
+				720BD2771BE4D29700117C85 /* UserNotesTableViewCell.xib in Resources */,
 				EE266D896E25FC5F2E34FD59 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +498,7 @@
 			files = (
 				72BA75B71BE282380067DEAB /* ServiceClient+Notes.swift in Sources */,
 				72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */,
+				720BD2761BE4D29700117C85 /* UserNotesTableViewCell.swift in Sources */,
 				7229C67A1BDFDA76004A14E4 /* ServiceAssembly.swift in Sources */,
 				7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */,
 				72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */,
@@ -485,12 +512,13 @@
 				7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */,
 				721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
-				72A96E751BE135C200B55F0D /* AddNoteViewController.swift in Sources */,
 				7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,
 				7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */,
 				72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */,
+				EE2663C0CA4779CC41EB5AF2 /* UserNotesViewController.swift in Sources */,
+				EE266EB3EBDF9FC011E5B117 /* AddNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
