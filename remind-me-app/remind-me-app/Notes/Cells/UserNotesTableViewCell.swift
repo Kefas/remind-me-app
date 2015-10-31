@@ -29,4 +29,5 @@ class UserNotesTableViewCell: UITableViewCell {
         postponeLabel.text = String(note.recurrence!)
         beaconLabel.text = "beacon id: \(String(note.beaconsId!))"
     }
+
 }

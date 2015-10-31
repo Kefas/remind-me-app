@@ -41,6 +41,7 @@ class NoteModel: NSObject {
                 for dict: NSDictionary in data! {
                     self.usersNotes?.append(self.processData(dict))
                 }
+                
                 completion(error)
                
             } else {
@@ -69,19 +70,47 @@ class NoteModel: NSObject {
     
     
     func deleteNote(token: String, userId: Int, noteId: Int,  completion: (NSError?) -> Void) {
-        serverClient.deleteNote(token, userId: userId, noteId: noteId) {
+        serverClient.deleteNote(token, noteId: noteId) {
+            (error: NSError?) -> Void in
+            if error == nil {
+                self.getUsersNotes(token, userId: userId, completion: { (error: NSError?) -> Void in
+                      completion(error)
+                })
+
+                
+            } else {
+                completion(error)
+            }
+        }
+    }
+    
+    func editNote(token: String, userId: Int, note: NoteDTO,  completion: (NSError?) -> Void) {
+        let dict: NSDictionary = createDictionaryFromNote(note)
+        
+        serverClient.editNote(token, noteId: note.id!, params: dict) {
             (error: NSError?) -> Void in
             if error == nil {
                 completion(error)
                 self.getUsersNotes(token, userId: userId, completion: { (error: NSError?) -> Void in
-                    
+                    completion(error)
                 })
                 
             } else {
                 completion(error)
             }
-
+            
         }
     }
 
+    func createDictionaryFromNote(note: NoteDTO) -> NSDictionary {
+        return ["remind": [
+            "id": note.id!,
+            "content": note.content!,
+            "date_start": note.startDate!,
+            "date_end": note.endDate!,
+            "recurrence": String(note.recurrence!),
+            "beacons_id": note.beaconsId!
+            ]
+        ]
+    }
 }

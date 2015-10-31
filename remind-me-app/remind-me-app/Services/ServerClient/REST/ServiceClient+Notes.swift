@@ -39,9 +39,9 @@ extension ServerClient {
         })
     }
     
-    internal func deleteNote(token: String, userId: Int, noteId: Int, completion: (NSError?) -> Void) {
+    internal func deleteNote(token: String, noteId: Int, completion: (NSError?) -> Void) {
         httpClient.requestSerializer.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
-        executeDELETE("/reminds/users/\(userId)",
+        executeDELETE("/reminds/\(noteId)",
             params: nil,
             success: {
                 (response) in
@@ -53,5 +53,18 @@ extension ServerClient {
         })
     }
 
-
+    internal func editNote(token: String, noteId: Int, params: NSDictionary, completion: (NSError?) -> Void) {
+        httpClient.requestSerializer.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+        executePUT("/reminds/\(noteId)",
+            params: params,
+            success: {
+                (response) in
+                completion(nil)
+            },
+            failure: {
+                (error) in
+                completion(error)
+        })
+    }
+    
 }

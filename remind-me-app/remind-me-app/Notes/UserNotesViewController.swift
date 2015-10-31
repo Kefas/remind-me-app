@@ -36,6 +36,7 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 60
         tableView.registerNib(UINib(nibName: "UserNotesTableViewCell", bundle: nil), forCellReuseIdentifier: GlobalConstants.Identifiers.UsersNotesId)
+        tableView.allowsSelectionDuringEditing = true
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,6 +57,19 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return editing
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let note : NoteDTO = noteModel!.usersNotes![indexPath.row]
+        
+        if(editing) {
+            let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
+            controller.delegate = self
+            controller.editingNote = note
+            let nv = UINavigationController(rootViewController: controller)
+            self.showViewController(nv, sender: nil)
+        }
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -83,6 +97,19 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
+    
+    func addNoteViewController(controller: AddNoteViewController, didEditNote note: NoteDTO) {
+        noteModel?.editNote(loginModel!.profileDTO!.token, userId: loginModel!.profileDTO!.id, note: note, completion: { (error: NSError?) -> Void in
+            if(error != nil) {
+                
+            }
+            else {
+                print("Note changed")
+                self.endEditingAndReload(controller)
+            }
+        })
+    }
+   
     func endEditingAndReload(controller: AddNoteViewController) {
         self.setEditing(false, animated: true)
         self.tableView.reloadData()
@@ -94,7 +121,10 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
             let note = (noteModel?.usersNotes![indexPath.row])! as NoteDTO
             noteModel?.deleteNote((loginModel?.profileDTO.token)!, userId: (loginModel?.profileDTO.id)!, noteId: note.id!, completion: { (error: NSError?) -> Void in
                 if(error == nil) {
-                    tableView.reloadData()
+                    tableView.beginUpdates()
+                     self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    //tableView.reloadData()
+                    tableView.endUpdates()
                 }
             })
         }
