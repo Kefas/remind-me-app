@@ -22,6 +22,9 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     var delegate: AddNoteViewControllerDelegate?
     var editingNote: NoteDTO?
     
+    var startDate: String?
+    var endDate: String?
+    
     @IBOutlet weak var noteText: THNotesTextView!
     @IBOutlet weak var startEndDatePicker: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -47,22 +50,61 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func saveNoteButtonPressed(sender: AnyObject) {
         print(loginModel?.profileDTO.email)
         
+        saveDates()
+        
         if(editingNote != nil) {
-            let note: NoteDTO = NoteDTO(id: editingNote!.id!, content: noteText.text, startDate: "", endDate: "", recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
+            let note: NoteDTO = NoteDTO(id: editingNote!.id!, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
+            
             delegate?.addNoteViewController(self, didEditNote: note)
         }
         else {
-            let note: NoteDTO = NoteDTO(id: 0, content: noteText.text, startDate: "", endDate: "", recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
+            let note: NoteDTO = NoteDTO(id: 0, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
            delegate?.addNoteViewController(self, didAddNewNote: note)
         }
         
     }
     
+    func saveDates() {
+        switch(startEndDatePicker.selectedSegmentIndex) {
+        case 0:
+            startDate = stringDateFromPicker(datePicker)
+            break
+        case 1:
+            endDate = stringDateFromPicker(datePicker)
+            break
+        default:
+            print("error")
+            break
+        }
+    }
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func updateEditingView(note: NoteDTO) {
         noteText.text = note.content
+    }
+    
+    @IBAction func switchToStartEndDate(sender: AnyObject) {
+        
+        switch(startEndDatePicker.selectedSegmentIndex) {
+        case 0:
+          endDate = stringDateFromPicker(datePicker)
+          break
+        case 1:
+             startDate = stringDateFromPicker(datePicker)
+             break
+        default:
+            print("error")
+            break
+        }
+        
+    }
+    
+    func stringDateFromPicker(picker: UIDatePicker) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        return formatter.stringFromDate(picker.date)
     }
 }

@@ -171,6 +171,9 @@
                                             <segment title="End date"/>
                                         </segments>
                                         <color key="tintColor" red="0.1137254902" green="0.3294117647" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="switchToStartEndDate:" destination="a7O-OI-xDB" eventType="valueChanged" id="zeP-za-iQu"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <animations/>
