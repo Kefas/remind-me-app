@@ -34,7 +34,7 @@ class LoginRegisterModel: NSObject {
                 self.noteModel?.getUsersNotes(self.profileDTO.token, userId: self.profileDTO.id, completion: { (error: NSError?) -> Void in
                     completion(error)
                 })
-                completion(error)
+                //completion(error)
 
             } else {
                 completion(error)

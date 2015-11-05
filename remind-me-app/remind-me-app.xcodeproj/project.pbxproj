@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7205B72B1BEBC82A005FEBE7 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205B7291BEBC82A005FEBE7 /* BeaconTableViewCell.swift */; };
+		7205B72C1BEBC82A005FEBE7 /* BeaconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7205B72A1BEBC82A005FEBE7 /* BeaconTableViewCell.xib */; };
 		720BD2761BE4D29700117C85 /* UserNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720BD2741BE4D29700117C85 /* UserNotesTableViewCell.swift */; };
 		720BD2771BE4D29700117C85 /* UserNotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720BD2751BE4D29700117C85 /* UserNotesTableViewCell.xib */; };
 		721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */; };
@@ -27,6 +29,12 @@
 		72BED5B71BDD64A7008C185B /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */; };
 		72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */; };
 		72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BED5BC1BDD720E008C185B /* CALayerExtension.swift */; };
+		72D693631BE76949007937E9 /* BeaconScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D693621BE76949007937E9 /* BeaconScanner.swift */; };
+		72D693651BE7699D007937E9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D693641BE7699D007937E9 /* CoreLocation.framework */; };
+		72D693671BE769A4007937E9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D693661BE769A4007937E9 /* CoreBluetooth.framework */; };
+		72D693691BE769AD007937E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D693681BE769AD007937E9 /* MessageUI.framework */; };
+		72D6936B1BE769B4007937E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D6936A1BE769B4007937E9 /* SystemConfiguration.framework */; };
+		72D6936D1BE76F05007937E9 /* BeaconListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6936C1BE76F05007937E9 /* BeaconListViewController.swift */; };
 		72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B511BDE863C00300E9C /* BorderedButton.swift */; };
 		72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B531BDE889800300E9C /* GlobalConstants.swift */; };
 		72DC7B561BDE8DA200300E9C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */; };
@@ -58,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		0075400197A16FAC270FDB58 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7205B7291BEBC82A005FEBE7 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
+		7205B72A1BEBC82A005FEBE7 /* BeaconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeaconTableViewCell.xib; sourceTree = "<group>"; };
 		720BD2741BE4D29700117C85 /* UserNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotesTableViewCell.swift; sourceTree = "<group>"; };
 		720BD2751BE4D29700117C85 /* UserNotesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNotesTableViewCell.xib; sourceTree = "<group>"; };
 		721E6A501BDEDDBA000B1E52 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +93,12 @@
 		72BED5B61BDD64A7008C185B /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		72BED5B81BDD64EE008C185B /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
 		72BED5BC1BDD720E008C185B /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		72D693621BE76949007937E9 /* BeaconScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconScanner.swift; sourceTree = "<group>"; };
+		72D693641BE7699D007937E9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		72D693661BE769A4007937E9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		72D693681BE769AD007937E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		72D6936A1BE769B4007937E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		72D6936C1BE76F05007937E9 /* BeaconListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconListViewController.swift; sourceTree = "<group>"; };
 		72DC7B511BDE863C00300E9C /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		72DC7B531BDE889800300E9C /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		72DC7B551BDE8DA200300E9C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +119,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D6936B1BE769B4007937E9 /* SystemConfiguration.framework in Frameworks */,
+				72D693691BE769AD007937E9 /* MessageUI.framework in Frameworks */,
+				72D693671BE769A4007937E9 /* CoreBluetooth.framework in Frameworks */,
+				72D693651BE7699D007937E9 /* CoreLocation.framework in Frameworks */,
 				7DEB4114000D7FCFC1CCBF9F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +178,10 @@
 				EE26676D14E23880997C8C1C /* Services */,
 				EE266DFD891EDCA19D1BB02C /* Models */,
 				EE2661F7D960F2429F0AB993 /* Notes */,
+				72D693621BE76949007937E9 /* BeaconScanner.swift */,
+				72D6936C1BE76F05007937E9 /* BeaconListViewController.swift */,
+				7205B7291BEBC82A005FEBE7 /* BeaconTableViewCell.swift */,
+				7205B72A1BEBC82A005FEBE7 /* BeaconTableViewCell.xib */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -192,6 +216,10 @@
 		DB36CCA850F64133D1BEC450 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72D6936A1BE769B4007937E9 /* SystemConfiguration.framework */,
+				72D693681BE769AD007937E9 /* MessageUI.framework */,
+				72D693661BE769A4007937E9 /* CoreBluetooth.framework */,
+				72D693641BE7699D007937E9 /* CoreLocation.framework */,
 				F4380BD849F8512C9C7DE7EE /* libPods.a */,
 			);
 			name = Frameworks;
@@ -422,6 +450,7 @@
 			files = (
 				72BED5891BDD5C75008C185B /* Assets.xcassets in Resources */,
 				EE26662E8F6323B3515DFD7B /* Main.storyboard in Resources */,
+				7205B72C1BEBC82A005FEBE7 /* BeaconTableViewCell.xib in Resources */,
 				720BD2771BE4D29700117C85 /* UserNotesTableViewCell.xib in Resources */,
 				EE266D896E25FC5F2E34FD59 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -509,12 +538,15 @@
 				EE26671F0CF64E7DE4619697 /* AppDelegate.swift in Sources */,
 				72BED5BD1BDD720E008C185B /* CALayerExtension.swift in Sources */,
 				72BA75B31BE280580067DEAB /* NoteModel.swift in Sources */,
+				72D6936D1BE76F05007937E9 /* BeaconListViewController.swift in Sources */,
 				7229C6781BDFD0A1004A14E4 /* ServerClient+Login.swift in Sources */,
 				721E6A511BDEDDBA000B1E52 /* IntroViewController.swift in Sources */,
 				72BED5B91BDD64EE008C185B /* ViewControllerAssembly.swift in Sources */,
+				72D693631BE76949007937E9 /* BeaconScanner.swift in Sources */,
 				7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,
+				7205B72B1BEBC82A005FEBE7 /* BeaconTableViewCell.swift in Sources */,
 				7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */,
 				72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */,
 				EE2663C0CA4779CC41EB5AF2 /* UserNotesViewController.swift in Sources */,

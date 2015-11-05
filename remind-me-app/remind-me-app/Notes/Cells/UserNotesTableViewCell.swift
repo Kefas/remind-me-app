@@ -25,8 +25,8 @@ class UserNotesTableViewCell: UITableViewCell {
     func setupWithNote(note: NoteDTO) {
         noteContent.text = note.content!
         startDateLabel.text = "start date: \(note.startDate!)"
-        endDateLabel.text = "enda date: \(note.endDate!)"
-        postponeLabel.text = String(note.recurrence!)
+        endDateLabel.text = "end date: \(note.endDate!)"
+        postponeLabel.text = " " //String(note.recurrence!)
         beaconLabel.text = "beacon id: \(String(note.beaconsId!))"
     }
 

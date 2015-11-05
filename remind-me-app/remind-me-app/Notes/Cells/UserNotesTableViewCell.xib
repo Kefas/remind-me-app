@@ -80,7 +80,7 @@
                 <outlet property="postponeLabel" destination="o6M-FL-RiL" id="52d-bc-vRM"/>
                 <outlet property="startDateLabel" destination="BlX-JP-72d" id="NPK-eY-lyL"/>
             </connections>
-            <point key="canvasLocation" x="273" y="258.5"/>
+            <point key="canvasLocation" x="146" y="272.5"/>
         </tableViewCell>
     </objects>
 </document>

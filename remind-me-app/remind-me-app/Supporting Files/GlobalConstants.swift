@@ -22,6 +22,12 @@ struct GlobalConstants {
     
     struct Identifiers {
         static let UsersNotesId = "UserNotesTableViewCellIdentifier"
+        static let BeaconCellId = "BeaconTableViewCellIdentifier"
+    }
+    
+    struct NotificationNames {
+        static let BeaconsInRange = "BeaconsInRangesNotification"
+        static let DidRangeBeacons = "DidRangeBeaconsNotification"
     }
 }
 
