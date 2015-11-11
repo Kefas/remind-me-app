@@ -22,7 +22,6 @@ class NoteModel: NSObject {
             (error: NSError?, data: NSDictionary?) -> Void in
             if error == nil {
                 completion(error)
-                print(data)
                 self.getUsersNotes(token, userId: userId, completion: { (error: NSError?) -> Void in
                     completion(error)
                 })
@@ -109,8 +108,27 @@ class NoteModel: NSObject {
             "date_start": note.startDate!,
             "date_end": note.endDate!,
             "recurrence": String(note.recurrence!),
-            "beacons_id": note.beaconsId!
+            "beacon_id": note.beaconsId!
             ]
         ]
+    }
+    
+    func getNotesByBeaconId(token: String, beaconId: Int, completion: (NSError?, [NoteDTO]?) -> Void) {
+        serverClient.getNoteById(token, beaconId: beaconId) {
+            (error: NSError?, dict:[NSDictionary]?) -> Void in
+            if(error == nil) {
+                
+                var notesById: [NoteDTO]? = [NoteDTO]()
+                
+                for d: NSDictionary in dict! {
+                    notesById?.append(self.processData(d))
+                }
+                completion(nil,notesById)
+            }
+            else {
+                completion(error, nil)
+            }
+           
+        }
     }
 }

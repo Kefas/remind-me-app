@@ -49,5 +49,23 @@ class ViewControllerAssembly: TyphoonAssembly {
         controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
         return controller
     }
+    
+    dynamic func beaconListviewController() -> AnyObject {
+        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "BeaconListViewController")
+        controller.injectProperty("viewControllerAssembly", with: self)
+        controller.injectProperty("beaconModel", with: self.modelAssembly.beaconModel())
+        controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
+        controller.injectProperty("noteModel", with: self.modelAssembly.noteModel())
+        return controller
+    }
+    
+    dynamic func addBeaconAlertView() -> AnyObject {
+        let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "AddBeaconAlertView")
+//        controller.injectProperty("viewControllerAssembly", with: self)
+//        controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
+//        controller.injectProperty("noteModel", with: self.modelAssembly.noteModel())
+        return controller
+    }
 
+    
 }

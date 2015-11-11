@@ -18,6 +18,7 @@ class ModelAssembly: TyphoonAssembly {
             (initializer: TyphoonMethod!) -> Void in
             initializer.injectParameterWith(self.serviceAssembly.serverClient())
         })
+        definition.injectProperty("beaconModel", with: self.beaconModel())
         definition.injectProperty("noteModel", with: self.noteModel())
         definition.scope = .Singleton
         return definition
@@ -33,4 +34,14 @@ class ModelAssembly: TyphoonAssembly {
         return definition
     }
     
+    dynamic func beaconModel() -> AnyObject {
+        let definition: TyphoonDefinition! = TyphoonDefinition.withClass(BeaconsModel.self) as! TyphoonDefinition
+        definition.useInitializer("initWithServerClient:", parameters: {
+            (initializer: TyphoonMethod!) -> Void in
+            initializer.injectParameterWith(self.serviceAssembly.serverClient())
+        })
+        definition.scope = .Singleton
+        return definition
+    }
+
 }

@@ -14,7 +14,7 @@ protocol AddNoteViewControllerDelegate : class {
 }
 
 
-class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDelegate, BeaconListViewControllerDelegate {
 
     var viewControllerAssembly: ViewControllerAssembly?
     var loginModel: LoginRegisterModel?
@@ -24,6 +24,8 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     
     var startDate: String?
     var endDate: String?
+    
+    var beaconDTO: BeaconDTO?
     
     @IBOutlet weak var noteText: THNotesTextView!
     @IBOutlet weak var startEndDatePicker: UISegmentedControl!
@@ -49,18 +51,24 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
 
     @IBAction func saveNoteButtonPressed(sender: AnyObject) {
         print(loginModel?.profileDTO.email)
-        
-        saveDates()
-        
-        if(editingNote != nil) {
-            let note: NoteDTO = NoteDTO(id: editingNote!.id!, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
+        if let beacon: BeaconDTO = self.beaconDTO {
+            saveDates()
             
-            delegate?.addNoteViewController(self, didEditNote: note)
+            if(editingNote != nil) {
+                let note: NoteDTO = NoteDTO(id: editingNote!.id!, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: beacon.id!)
+                
+                delegate?.addNoteViewController(self, didEditNote: note)
+            }
+            else {
+                let note: NoteDTO = NoteDTO(id: 0, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: beacon.id!)
+                delegate?.addNoteViewController(self, didAddNewNote: note)
+            }
         }
         else {
-            let note: NoteDTO = NoteDTO(id: 0, content: noteText.text, startDate: startDate!, endDate: endDate!, recurrence: "M", userId: (loginModel?.profileDTO.id)!, beaconsId: 0)
-           delegate?.addNoteViewController(self, didAddNewNote: note)
+            let alert = UIAlertView(title: "Please select beacon", message: "Connect note with beacon!", delegate: nil, cancelButtonTitle: "Cancel")
+            alert.show()
         }
+        
         
     }
     
@@ -103,8 +111,19 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     
     func stringDateFromPicker(picker: UIDatePicker) -> String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         return formatter.stringFromDate(picker.date)
+    }
+
+    @IBAction func beaconListButtonPressed(sender: AnyObject) {
+        let beaconList: BeaconListViewController = viewControllerAssembly?.beaconListviewController() as! BeaconListViewController
+        beaconList.delegate = self
+            self.navigationController?.pushViewController(beaconList, animated: true)
+    }
+    
+    func beaconListViewController(controller: BeaconListViewController, didChooseBeacon beacon: BeaconDTO) {
+        self.beaconDTO = beacon
+        controller.navigationController?.popViewControllerAnimated(true)
     }
 }

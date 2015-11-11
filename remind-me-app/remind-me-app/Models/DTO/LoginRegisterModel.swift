@@ -13,6 +13,7 @@ class LoginRegisterModel: NSObject {
     let serverClient: ServerClient
     var profileDTO: UserProfileDTO!
     var noteModel: NoteModel?
+    var beaconModel: BeaconsModel?
     
     init(serverClient: ServerClient) {
         self.serverClient = serverClient
@@ -32,8 +33,12 @@ class LoginRegisterModel: NSObject {
                 UICKeyChainStore.setString(password, forKey: "password")
                 self.profileDTO = self.processData(data!)
                 self.noteModel?.getUsersNotes(self.profileDTO.token, userId: self.profileDTO.id, completion: { (error: NSError?) -> Void in
-                    completion(error)
+                    self.beaconModel?.getUsersBeacons(self.profileDTO.token, completion: { (error: NSError?) -> Void in
+                        completion(error)
+                    })
                 })
+               
+                
                 //completion(error)
 
             } else {

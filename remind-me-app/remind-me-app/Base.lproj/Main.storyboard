@@ -214,11 +214,18 @@
                                 <action selector="cancelButtonPressed:" destination="a7O-OI-xDB" id="Kzy-Sr-0Td"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Xdh-Wi-NLq">
-                            <connections>
-                                <action selector="saveNoteButtonPressed:" destination="a7O-OI-xDB" id="wj8-KT-nGa"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="Xdh-Wi-NLq">
+                                <connections>
+                                    <action selector="saveNoteButtonPressed:" destination="a7O-OI-xDB" id="wj8-KT-nGa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="beacon" id="hLb-IO-uRO">
+                                <connections>
+                                    <action selector="beaconListButtonPressed:" destination="a7O-OI-xDB" id="H1w-hg-WNm"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="obu-aM-SDe" id="djV-11-0av"/>
@@ -268,14 +275,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My notes" id="FyY-sN-PV7">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="7b1-3S-ksL"/>
-                            <barButtonItem title="Beacon" id="108-0z-N6y">
-                                <connections>
-                                    <segue destination="9qW-5y-jtp" kind="show" id="bxd-M1-TtP"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="7b1-3S-ksL"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mpa-tF-QgI" id="Hjw-z1-7Xl"/>
@@ -288,7 +288,7 @@
         <!--Beacon List View Controller-->
         <scene sceneID="JWl-H2-whU">
             <objects>
-                <viewController id="9qW-5y-jtp" customClass="BeaconListViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BeaconListViewController" id="9qW-5y-jtp" customClass="BeaconListViewController" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qSH-l1-R1h"/>
                         <viewControllerLayoutGuide type="bottom" id="iKS-Ea-6hr"/>
@@ -331,6 +331,7 @@
                             <constraint firstItem="zGS-vs-u6I" firstAttribute="top" secondItem="Ueu-x3-LSI" secondAttribute="bottom" constant="20" id="qdG-oi-7S4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iP0-JN-dqd"/>
                     <connections>
                         <outlet property="bluetoothImage" destination="9dH-7V-abg" id="eHO-8S-hfH"/>
                         <outlet property="bluetoothLabel" destination="Ueu-x3-LSI" id="LDx-a9-6nd"/>
@@ -339,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWZ-9X-vO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="2071"/>
+            <point key="canvasLocation" x="1354" y="2080"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -802,7 +803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-Vg-omz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="1204"/>
+            <point key="canvasLocation" x="398" y="1316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h6M-dd-V5u">
@@ -842,9 +843,111 @@
             </objects>
             <point key="canvasLocation" x="-972" y="2061"/>
         </scene>
+        <!--Add Beacon Alert View-->
+        <scene sceneID="Vrc-P3-Rqd">
+            <objects>
+                <viewController storyboardIdentifier="AddBeaconAlertView" id="rcV-9I-NF6" customClass="AddBeaconAlertView" customModule="remind_me_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rQH-af-Co1"/>
+                        <viewControllerLayoutGuide type="bottom" id="2jS-kN-lx2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FuD-qo-Iar">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2G-fP-Dzu">
+                                <rect key="frame" x="20" y="104" width="560" height="35"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="y1Z-o9-Odb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UUID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMI-Vg-d6z">
+                                <rect key="frame" x="20" y="149" width="560" height="35"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="cIr-Fh-mIt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="u2G-fP-Dzu" secondAttribute="trailing" constant="20" id="5Vp-rE-BBo"/>
+                            <constraint firstItem="u2G-fP-Dzu" firstAttribute="leading" secondItem="FuD-qo-Iar" secondAttribute="leading" constant="20" id="EGq-p9-xWI"/>
+                            <constraint firstItem="nMI-Vg-d6z" firstAttribute="top" secondItem="u2G-fP-Dzu" secondAttribute="bottom" constant="10" id="Q5p-dm-btJ"/>
+                            <constraint firstItem="nMI-Vg-d6z" firstAttribute="leading" secondItem="FuD-qo-Iar" secondAttribute="leading" constant="20" id="hdT-ya-TJ3"/>
+                            <constraint firstAttribute="trailing" secondItem="nMI-Vg-d6z" secondAttribute="trailing" constant="20" id="seG-KU-yse"/>
+                            <constraint firstItem="u2G-fP-Dzu" firstAttribute="top" secondItem="rQH-af-Co1" secondAttribute="bottom" constant="40" id="wNM-l9-POw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ouP-MS-JBP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3PO-Xv-AN1">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="rcV-9I-NF6" id="qlX-zu-oor"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yWd-1p-bCV">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="rcV-9I-NF6" id="914-QH-CIj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="u2G-fP-Dzu" id="GZr-IL-MeB"/>
+                        <outlet property="uuidTextField" destination="nMI-Vg-d6z" id="JaZ-9F-JX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZdP-oF-e0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="2784"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jzH-UX-tfX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KJx-P0-3LS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="evD-N1-g5G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rcV-9I-NF6" kind="relationship" relationship="rootViewController" id="vwy-pn-8mr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qun-W0-hXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-903" y="2784"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wpP-Ke-hTR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4AX-uj-7Wg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtB-pB-vtr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9qW-5y-jtp" kind="relationship" relationship="rootViewController" id="ujR-r3-BJE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mq4-mv-oAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="2080"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="391" height="414"/>
+        <image name="beacon" width="30" height="30"/>
         <image name="close" width="29" height="29"/>
         <image name="email" width="27" height="27"/>
         <image name="note" width="170" height="170"/>

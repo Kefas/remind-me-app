@@ -18,6 +18,10 @@
 		7229C67C1BDFDDAC004A14E4 /* RegisterUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */; };
 		7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */; };
 		7229C6801BDFDF72004A14E4 /* LoginRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */; };
+		723092411BF35BA400DE5F8E /* BeaconDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723092401BF35BA400DE5F8E /* BeaconDTO.swift */; };
+		723092431BF364AA00DE5F8E /* BeaconsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723092421BF364AA00DE5F8E /* BeaconsModel.swift */; };
+		723092451BF364DA00DE5F8E /* ServerCLient+Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723092441BF364DA00DE5F8E /* ServerCLient+Beacons.swift */; };
+		723092471BF3713400DE5F8E /* AddBeaconAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723092461BF3713400DE5F8E /* AddBeaconAlertView.swift */; };
 		72A96E731BE132F000B55F0D /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A96E721BE132F000B55F0D /* UserProfileDTO.swift */; };
 		72BA75B31BE280580067DEAB /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BA75B21BE280580067DEAB /* NoteModel.swift */; };
 		72BA75B51BE280680067DEAB /* NoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BA75B41BE280680067DEAB /* NoteDTO.swift */; };
@@ -77,6 +81,10 @@
 		7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserDTO.swift; sourceTree = "<group>"; };
 		7229C67D1BDFDF24004A14E4 /* ModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssembly.swift; sourceTree = "<group>"; };
 		7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegisterModel.swift; path = DTO/LoginRegisterModel.swift; sourceTree = "<group>"; };
+		723092401BF35BA400DE5F8E /* BeaconDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDTO.swift; sourceTree = "<group>"; };
+		723092421BF364AA00DE5F8E /* BeaconsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsModel.swift; sourceTree = "<group>"; };
+		723092441BF364DA00DE5F8E /* ServerCLient+Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerCLient+Beacons.swift"; sourceTree = "<group>"; };
+		723092461BF3713400DE5F8E /* AddBeaconAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconAlertView.swift; sourceTree = "<group>"; };
 		72A96E721BE132F000B55F0D /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
 		72BA75B21BE280580067DEAB /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		72BA75B41BE280680067DEAB /* NoteDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDTO.swift; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				72D6936C1BE76F05007937E9 /* BeaconListViewController.swift */,
 				7205B7291BEBC82A005FEBE7 /* BeaconTableViewCell.swift */,
 				7205B72A1BEBC82A005FEBE7 /* BeaconTableViewCell.xib */,
+				723092461BF3713400DE5F8E /* AddBeaconAlertView.swift */,
 			);
 			path = "remind-me-app";
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 				7229C6751BDFCD59004A14E4 /* ServerClient.swift */,
 				7229C6771BDFD0A1004A14E4 /* ServerClient+Login.swift */,
 				72BA75B61BE282380067DEAB /* ServiceClient+Notes.swift */,
+				723092441BF364DA00DE5F8E /* ServerCLient+Beacons.swift */,
 			);
 			path = REST;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 				7229C67B1BDFDDAC004A14E4 /* RegisterUserDTO.swift */,
 				72A96E721BE132F000B55F0D /* UserProfileDTO.swift */,
 				72BA75B41BE280680067DEAB /* NoteDTO.swift */,
+				723092401BF35BA400DE5F8E /* BeaconDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -337,6 +348,7 @@
 				7229C67F1BDFDF72004A14E4 /* LoginRegisterModel.swift */,
 				EE2666B61C9F4F3735DAEA1A /* DTO */,
 				72BA75B21BE280580067DEAB /* NoteModel.swift */,
+				723092421BF364AA00DE5F8E /* BeaconsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,10 +558,14 @@
 				7229C67E1BDFDF24004A14E4 /* ModelAssembly.swift in Sources */,
 				EE266235C36E7A2E7619AB56 /* LoginViewController.swift in Sources */,
 				72DC7B541BDE889800300E9C /* GlobalConstants.swift in Sources */,
+				723092431BF364AA00DE5F8E /* BeaconsModel.swift in Sources */,
+				723092451BF364DA00DE5F8E /* ServerCLient+Beacons.swift in Sources */,
 				7205B72B1BEBC82A005FEBE7 /* BeaconTableViewCell.swift in Sources */,
 				7229C6761BDFCD59004A14E4 /* ServerClient.swift in Sources */,
 				72DC7B521BDE863C00300E9C /* BorderedButton.swift in Sources */,
 				EE2663C0CA4779CC41EB5AF2 /* UserNotesViewController.swift in Sources */,
+				723092471BF3713400DE5F8E /* AddBeaconAlertView.swift in Sources */,
+				723092411BF35BA400DE5F8E /* BeaconDTO.swift in Sources */,
 				EE266EB3EBDF9FC011E5B117 /* AddNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

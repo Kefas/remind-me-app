@@ -21,5 +21,8 @@ class BeaconTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    
+    func setupWithBeacon(beacon: BeaconDTO) {
+        self.nameLabel.text = beacon.name
+        self.uuidLabel.text = beacon.uuid
+    }
 }
