@@ -14,7 +14,7 @@ protocol AddNoteViewControllerDelegate : class {
 }
 
 
-class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDelegate, BeaconListViewControllerDelegate {
+class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDelegate, BeaconListViewControllerDelegate, UIGestureRecognizerDelegate {
 
     var viewControllerAssembly: ViewControllerAssembly?
     var loginModel: LoginRegisterModel?
@@ -31,6 +31,7 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBOutlet weak var startEndDatePicker: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var keyboardDismissListener: UIGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
         else {
             navigationItem.title = "Add new note"
         }
+        
     }
 
 

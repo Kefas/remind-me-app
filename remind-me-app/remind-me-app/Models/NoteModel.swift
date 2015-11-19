@@ -59,15 +59,23 @@ class NoteModel: NSObject {
         
         if let noteId = json["id"] as? Int {id = noteId} else {id = 0}
         if let cont = json["content"] as? String {content = cont} else {content = ""}
-        if let start = json["date_start"] as? String {startDate = start} else {startDate = ""}
-        if let end = json["date_end"] as? String {endDate = end} else {endDate = ""}
+        if let start = json["date_start"] as? String {startDate = prepareDate(start)} else {startDate = ""}
+        if let end = json["date_end"] as? String {endDate = prepareDate(end)} else {endDate = ""}
         if let recur = json["recurrence"] as? Character {recurrence = recur} else {recurrence = "N"}
         if let beacon = json["beacon_id"] as? Int {beaconId = beacon} else {beaconId = 0}
         
         return NoteDTO(id: id!, content: content!, startDate: startDate!, endDate: endDate!, recurrence: recurrence!, userId: json["user_id"] as! Int, beaconsId: beaconId!)
     }
     
-    
+    func prepareDate(dateString:String) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let dateSubstring = dateString.substringWithRange(Range<String.Index>(start: dateString.startIndex, end: dateString.endIndex.advancedBy(-10)))
+        let date = formatter.dateFromString(dateSubstring)
+        
+        formatter.dateFormat = "dd-MM-rrrr, HH:mm"
+        return formatter.stringFromDate(date!)
+    }
     func deleteNote(token: String, userId: Int, noteId: Int,  completion: (NSError?) -> Void) {
         serverClient.deleteNote(token, noteId: noteId) {
             (error: NSError?) -> Void in

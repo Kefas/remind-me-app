@@ -52,6 +52,10 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for r: CLRegion in locationManager.monitoredRegions {
+            locationManager.stopMonitoringForRegion(r)
+        }
+        
         locationManager.delegate = self;
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -72,7 +76,7 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
             let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: beacon.uuid!)!, identifier: beacon.name!)
             region.notifyOnExit = true
             region.notifyOnEntry = true
-            
+
             region.notifyEntryStateOnDisplay = true
             locationManager.startMonitoringForRegion(region)
         }
@@ -201,10 +205,11 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
         if state == .Inside {
+            
             manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
         }
         else {
-            
+            manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
         }
     }
     
@@ -234,18 +239,20 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func scheduleNotificationsWithNotes(beacon: BeaconDTO) {
         print("In method getting notes by id")
-        noteModel?.getNotesByBeaconId((loginModel?.profileDTO.token)!, beaconId: beacon.id!, completion: {
-            (error: NSError?, notes: [NoteDTO]?) -> Void in
-            if(error == nil) {
-                for note: NoteDTO in notes! {
-                    self.scheduleLocalNotification(note)
-                   
-                }
-            }
-            else {
-                
-            }
-        })
+//        noteModel?.getNotesByBeaconId((loginModel?.profileDTO.token)!, beaconId: beacon.id!, completion: {
+//            (error: NSError?, notes: [NoteDTO]?) -> Void in
+//            if(error == nil) {
+//                for note: NoteDTO in notes! {
+//                    self.scheduleLocalNotification(note)
+//                   
+//                }
+//            }
+//            else {
+//                
+//            }
+//        })
+        let note: NoteDTO = NoteDTO(id: 1, content: "Zabrać klucze.", startDate: "", endDate: "", recurrence: "m", userId: 2, beaconsId: 2)
+        scheduleLocalNotification(note)
     }
     
     
