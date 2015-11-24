@@ -46,7 +46,9 @@ class ViewControllerAssembly: TyphoonAssembly {
         let controller = TyphoonDefinition.withStoryboard(applicationAssembly.mainStoryboard(), storyboardID: "UserNotesViewController")
         controller.injectProperty("viewControllerAssembly", with: self)
         controller.injectProperty("noteModel", with: self.modelAssembly.noteModel())
+           controller.injectProperty("beaconModel", with: self.modelAssembly.beaconModel())
         controller.injectProperty("loginModel", with: self.modelAssembly.loginRegisterModel())
+        controller.injectProperty("appDelegate", with: self.applicationAssembly.appDelegate())
         return controller
     }
     

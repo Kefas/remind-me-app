@@ -68,7 +68,10 @@ extension ServerClient {
     }
     
     internal func getNoteById(token: String, beaconId: Int, completion: (NSError?, [NSDictionary]?) -> Void) {
-         httpClient.requestSerializer.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+       // var backgroundConf = NSURLSessionConfiguration()
+      //  backgroundConf.backgroundSessionConfigurationWithIdentifier("background")
+        
+        httpClient.requestSerializer.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
         executeGET("/reminds/beacons/active/\(beaconId)", params: nil,
             success:  {
                 (response) in

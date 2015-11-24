@@ -10,26 +10,45 @@
 import Foundation
 import CoreLocation
 
+@objc protocol BeaconScannerDelegate {
+    func updateBeaconLocalization(distance:CLLocationAccuracy)
+}
+
+@objc protocol BeaconDelegate {
+    func handleNotification(note: NoteDTO, beacon: BeaconDTO, noteModel: NoteModel, userProfile: UserProfileDTO)
+}
+
 class BeaconScanner: NSObject {
-    let UUIDs: [String]
     let locationManager: CLLocationManager
     var regionsInRange = Set<CLBeaconRegion>()
+    var beacons: [BeaconDTO]
+    var loginModel: LoginRegisterModel?
+    var beaconModel: BeaconsModel?
+    var noteModel: NoteModel?
+    var beaconDelegate: BeaconScannerDelegate?
+    var beaconD: BeaconDelegate?
+    var appDelegate: AppDelegate?
     
-    init(UUIDs: [String]) {
+    init(beacons: [BeaconDTO]) {
         self.locationManager = CLLocationManager()
-        self.UUIDs = UUIDs
+        self.beacons = beacons
         super.init()
         locationManager.delegate = self
         startMonitoringForRegions()
+        beaconD = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        
     }
+    
     
     private func startMonitoringForRegions() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
             locationManager.pausesLocationUpdatesAutomatically = false
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            for uuid in UUIDs {
-                let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid)!, identifier: "AGH.remind-me-app")
+            for beacon in self.beacons {
+                let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: beacon.uuid!)!, identifier: beacon.name!)
                 region.notifyOnEntry = true
                 region.notifyOnExit = true
                 locationManager.startMonitoringForRegion(region)
@@ -45,11 +64,11 @@ extension BeaconScanner: CLLocationManagerDelegate {
         if let beaconRegion = region as? CLBeaconRegion {
             switch state {
             case .Inside:
-                regionsInRange.insert(beaconRegion)
-                postBeaconsInRangeNotification()
+                print("Inside")
+                break;
             case .Outside:
-                regionsInRange.remove(beaconRegion)
-                postBeaconsInRangeNotification()
+                print("Outside")
+                break;
             default:
                 break;
             }
@@ -57,42 +76,73 @@ extension BeaconScanner: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        addRegionAndNotify(region: region)
+        self.locationManager.startUpdatingLocation()
+
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        removeRegionAndNotify(region: region)
+        if(UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+            var bgTask = UIBackgroundTaskInvalid
+            bgTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(bgTask)
+           })
+            let beacon: BeaconDTO = self.findMissingBeacon(region as! CLBeaconRegion)
+            self.scheduleNotificationsWithNotes(beacon)
+            self.locationManager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
+           
+            
+            if (bgTask != UIBackgroundTaskInvalid){
+                UIApplication.sharedApplication().endBackgroundTask(bgTask);
+            }
+        }
+        
+       
+    }
+    
+    func scheduleNotificationsWithNotes(beacon: BeaconDTO) {
+        print("In method getting notes by id")
+        noteModel?.getNotesByBeaconId((loginModel?.profileDTO.token)!, beaconId: beacon.id!, completion: {
+                    (error: NSError?, notes: [NoteDTO]?) -> Void in
+                    if(error == nil) {
+                        for note: NoteDTO in notes! {
+                            self.scheduleLocalNotification(note, beacon: beacon)
+                           // self.locationManager.stopUpdatingLocation()
+                        }
+                    }
+                    else {
+        
+                    }
+                })
+
+  
     }
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
-        postBeaconsDidRangeNotification(beacons: beacons)
-    }
-    
-    func locationManager(manager: CLLocationManager, rangingBeaconsDidFailForRegion region: CLBeaconRegion, withError error: NSError) {
-        removeRegionAndNotify(region: region)
-    }
-    
-    private func addRegionAndNotify(region region:CLRegion) {
-        if let beaconRegion = region as? CLBeaconRegion {
-            regionsInRange.insert(beaconRegion)
-            postBeaconsInRangeNotification()
+        let knownBeacons = beacons.filter{ $0.proximity == CLProximity.Near || $0.proximity == CLProximity.Immediate}
+        
+        if (knownBeacons.count > 0) {
+            let closestBeacon = knownBeacons[0] as CLBeacon
+            let distance = closestBeacon.accuracy
+            beaconDelegate?.updateBeaconLocalization(distance)
         }
+        
     }
-    
-    private func removeRegionAndNotify(region region: CLRegion) {
-        if let beaconRegion = region as? CLBeaconRegion {
-            regionsInRange.remove(beaconRegion)
-            postBeaconsInRangeNotification()
+    func findMissingBeacon(region: CLBeaconRegion) -> BeaconDTO {
+        for beacondto: BeaconDTO in beaconModel!.userBeacons! {
+            if(beacondto.uuid == region.proximityUUID.UUIDString) {
+                return beacondto
+            }
         }
+        return BeaconDTO()
     }
     
-    func postBeaconsDidRangeNotification(beacons beacons:[CLBeacon]) {
-        let userInfo = ["beacons": beacons]
-        NSNotificationCenter.defaultCenter().postNotificationName(GlobalConstants.NotificationNames.DidRangeBeacons, object: self, userInfo: userInfo)
+    func scheduleLocalNotification(note: NoteDTO, beacon: BeaconDTO) {
+        let localNotification = UILocalNotification()
+        localNotification.alertBody = "Remind: \(note.content!)"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.category = "NotificationCategory"
+        beaconD?.handleNotification(note, beacon: beacon, noteModel: self.noteModel!, userProfile:(self.loginModel?.profileDTO)!)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
-    func postBeaconsInRangeNotification() {
-        let userInfo = ["regions": regionsInRange]
-        NSNotificationCenter.defaultCenter().postNotificationName(GlobalConstants.NotificationNames.BeaconsInRange, object: self, userInfo: userInfo)
-    }
 }

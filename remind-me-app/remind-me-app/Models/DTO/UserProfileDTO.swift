@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileDTO {
+class UserProfileDTO: NSObject {
     
     let id: Int
     let email: String

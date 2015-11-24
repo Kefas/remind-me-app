@@ -14,17 +14,15 @@ enum BeaconSearchState {
     case BluetoothOff
     case BluetoothNotSupported
     case BluetoothOn
-//    case NoBeaconsFound
-//    case BeaconsFound
 }
 
 @objc protocol BeaconListViewControllerDelegate {
      func beaconListViewController(controller: BeaconListViewController, didChooseBeacon beacon: BeaconDTO)
 }
 
-class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, CBCentralManagerDelegate, AddBeaconViewDelegate {
+class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, CBCentralManagerDelegate, AddBeaconViewDelegate, BeaconScannerDelegate {
     
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     var beaconRegion: CLBeaconRegion?
     
     var loginModel: LoginRegisterModel?
@@ -38,6 +36,8 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bluetoothLabel: UILabel!
     @IBOutlet weak var bluetoothImage: UIImageView!
+    
+    var beaconScanner: BeaconScanner?
     
     var distance: CLLocationAccuracy = 0.00
     
@@ -55,12 +55,7 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
         for r: CLRegion in locationManager.monitoredRegions {
             locationManager.stopMonitoringForRegion(r)
         }
-        
-        locationManager.delegate = self;
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        
-        
+    
         setupUpdatingLocations()
         setupTableView()
         
@@ -69,9 +64,11 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
         bluetoothManager = CBCentralManager(delegate: self, queue: nil, options: bluetoothOptions)
         
         setupEditButton()
+        beaconScanner?.beaconDelegate = self
     }
     
     func setupUpdatingLocations() {
+        self.locationManager = CLLocationManager()
         for beacon: BeaconDTO in (beaconModel?.userBeacons)! {
             let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: beacon.uuid!)!, identifier: beacon.name!)
             region.notifyOnExit = true
@@ -79,6 +76,7 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
 
             region.notifyEntryStateOnDisplay = true
             locationManager.startMonitoringForRegion(region)
+            locationManager.startRangingBeaconsInRegion(region)
         }
     }
     
@@ -184,96 +182,7 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            let note = (beaconModel?.userBeacons![indexPath.row])! as BeaconDTO
-//            beaconModel?.deleteNote((loginModel?.profileDTO.token)!, userId: (loginModel?.profileDTO.id)!, noteId: note.id!, completion: { (error: NSError?) -> Void in
-//                if(error == nil) {
-//                    tableView.beginUpdates()
-//                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//                    tableView.endUpdates()
-//                }
-//            })
-//        }
-    }
     
-    
-    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
-        self.locationManager.requestStateForRegion(region as! CLBeaconRegion)
-        
-    }
-    
-    func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
-        if state == .Inside {
-            
-            manager.startRangingBeaconsInRegion(region as! CLBeaconRegion)
-        }
-        else {
-            manager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
-        let knownBeacons = beacons.filter{ $0.proximity == CLProximity.Near || $0.proximity == CLProximity.Immediate}
-        //      let farBeacon = beacons.filter{$0.proximity == CLProximity.Far}
-        
-        if (knownBeacons.count > 0) {
-            let closestBeacon = knownBeacons[0] as CLBeacon
-                distance = closestBeacon.accuracy
-                tableView.reloadData()
-        }
-        
-    }
-    
-    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        self.locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-    
-        let beacon: BeaconDTO = findMissingBeacon(region as! CLBeaconRegion)
-        scheduleNotificationsWithNotes(beacon)
-        self.locationManager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
-        self.locationManager.stopUpdatingLocation()
-    }
-    
-    func scheduleNotificationsWithNotes(beacon: BeaconDTO) {
-        print("In method getting notes by id")
-//        noteModel?.getNotesByBeaconId((loginModel?.profileDTO.token)!, beaconId: beacon.id!, completion: {
-//            (error: NSError?, notes: [NoteDTO]?) -> Void in
-//            if(error == nil) {
-//                for note: NoteDTO in notes! {
-//                    self.scheduleLocalNotification(note)
-//                   
-//                }
-//            }
-//            else {
-//                
-//            }
-//        })
-        let note: NoteDTO = NoteDTO(id: 1, content: "Zabrać klucze.", startDate: "", endDate: "", recurrence: "m", userId: 2, beaconsId: 2)
-        scheduleLocalNotification(note)
-    }
-    
-    
-    func findMissingBeacon(region: CLBeaconRegion) -> BeaconDTO {
-        for beacondto: BeaconDTO in beaconModel!.userBeacons! {
-            if(beacondto.uuid == region.proximityUUID.UUIDString) {
-                return beacondto
-            }
-        }
-        return BeaconDTO()
-    }
-    
-    func scheduleLocalNotification(note: NoteDTO) {
-        var localNotification = UILocalNotification()
-        localNotification.alertBody = "Remind: \(note.content!)"
-       // localNotification.alertAction = "View List"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-    }
-
     func addBeacon(view: AddBeaconAlertView, name: String, uuid: String) {
         let beaconName = name
         let beaconUUID = uuid
@@ -290,4 +199,8 @@ class BeaconListViewController: UIViewController, CLLocationManagerDelegate, UIT
         })
     }
     
+    func updateBeaconLocalization(distance: CLLocationAccuracy) {
+        self.distance = distance
+        tableView.reloadData()
+    }
 }

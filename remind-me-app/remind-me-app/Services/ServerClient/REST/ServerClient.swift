@@ -11,7 +11,7 @@ import UIKit
 class ServerClient: NSObject {
 
     var serverURL = GlobalConstants.Networking.RemindMeServerURL
-    let httpClient = AFHTTPRequestOperationManager()
+    let httpClient = AFHTTPSessionManager()
    
     internal override init() {
         super.init()
@@ -31,7 +31,7 @@ class ServerClient: NSObject {
     }
     
     func executeGET(path: String, params: AnyObject?, success: (AnyObject -> Void), failure: (NSError -> Void)) {
-        
+
         httpClient.GET(urlWithPath(path), parameters: params, success: {
             (operation, response) -> Void in
             success(response)
@@ -45,11 +45,11 @@ class ServerClient: NSObject {
     func executePOST(path: String, params: AnyObject?, success: (AnyObject? -> Void), failure: (NSError? -> Void)) {
         
         httpClient.POST(urlWithPath(path), parameters: params, success: {
-            (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            (operation, response: AnyObject!) -> Void in
             success(response)
             
             }) {
-                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                (operation, error: NSError!) -> Void in
                 print(error.localizedDescription)
                 failure(error)
         }
@@ -58,10 +58,10 @@ class ServerClient: NSObject {
     func executeDELETE(path: String, params: AnyObject?, success: (AnyObject? -> Void), failure: (NSError? -> Void)) {
         
         httpClient.DELETE(urlWithPath(path), parameters: params, success: {
-            (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            (operation, response: AnyObject!) -> Void in
             success(response)
             }) {
-                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                (operation, error: NSError!) -> Void in
                 print(error.localizedDescription)
                 failure(error)
         }
@@ -70,10 +70,10 @@ class ServerClient: NSObject {
     func executePUT(path: String, params: AnyObject?, success: (AnyObject? -> Void), failure: (NSError? -> Void)) {
         
         httpClient.PUT(urlWithPath(path), parameters: params, success: {
-            (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            (operation, response: AnyObject!) -> Void in
             success(response)
             }) {
-                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                (operation, error: NSError!) -> Void in
                 failure(error)
         }
     }

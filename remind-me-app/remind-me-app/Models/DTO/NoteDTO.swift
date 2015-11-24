@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteDTO {
+class NoteDTO: NSObject {
     
     
     let id: Int?

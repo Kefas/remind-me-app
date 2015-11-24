@@ -10,6 +10,15 @@ import UIKit
 
 class ApplicationAssembly: TyphoonAssembly {
 
+    var modelAssembly: ModelAssembly!
+    var viewControllerAssembly: ViewControllerAssembly!
+    
+    dynamic func appDelegate() -> AnyObject {
+        return TyphoonDefinition.withClass(AppDelegate.self, configuration: { (definition) -> Void in
+         //  definition.injectProperty("noteViewController", with: self.viewControllerAssembly.userNotesViewController())
+        })
+    }
+    
     dynamic func mainStoryboard() -> AnyObject {
         return TyphoonDefinition.withClass(TyphoonStoryboard.self) {
             (definition) in

@@ -9,40 +9,52 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BeaconDelegate {
 
     var window: UIWindow?
-    var beaconScanner: BeaconScanner?
-
+    var noteModel: NoteModel?
+    var note: NoteDTO?
+    var profileDTO :UserProfileDTO?
+    var beacon: BeaconDTO?
+    var noteViewController: UserNotesViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let settings = UIUserNotificationSettings(forTypes: [.Badge, .Alert, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-     //   UIApplication.sharedApplication().registerForRemoteNotifications()
-        
+        setupLocalNotification()
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    private func setupLocalNotification() {
+        let postponeAction = UIMutableUserNotificationAction()
+        postponeAction.identifier = "POSTPONE"
+        postponeAction.title = "Odłóż na 30 min"
+        postponeAction.activationMode = UIUserNotificationActivationMode.Background
+        
+        let dismissAction = UIMutableUserNotificationAction()
+        dismissAction.identifier = "DELETE"
+        dismissAction.title = "Usuń"
+        dismissAction.activationMode = UIUserNotificationActivationMode.Background
+        
+        let counterCategory = UIMutableUserNotificationCategory()
+        counterCategory.identifier = "NotificationCategory"
+        
+        counterCategory.setActions([postponeAction, dismissAction], forContext: .Default)
+        let settings = UIUserNotificationSettings(forTypes: [.Badge, .Alert, .Sound], categories: [counterCategory])
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+
     }
+    func applicationWillResignActive(application: UIApplication) {    }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
@@ -59,17 +71,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        
-        if identifier == "editList" {
-            NSNotificationCenter.defaultCenter().postNotificationName("modifyListNotification", object: nil)
+       
+        if identifier == "POSTPONE" {
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy, HH:mm"
+            var date: NSDate = formatter.dateFromString(self.note!.startDate!)!
+            var endD = formatter.dateFromString(self.note!.endDate!)!
+            date = date.dateByAddingTimeInterval(30.0 * 60.0)
+            endD = endD.dateByAddingTimeInterval(30.0 * 60.0)
+           let f = NSDateFormatter()
+            f.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let startDate = f.stringFromDate(date)
+            let endDate = f.stringFromDate(endD)
+            
+            let modifiedNote = NoteDTO(id: note!.id!, content: note!.content!, startDate: startDate, endDate: endDate, recurrence: "M", userId: profileDTO!.id, beaconsId: beacon!.id!)
+            noteModel?.editNote(profileDTO!.token, userId: profileDTO!.id, note: modifiedNote, completion: { (error) -> Void in
+                if(error == nil) {
+                     self.noteViewController!.tableView.reloadData()
+                    print("Postponed")
+                }
+                else {
+                    
+                }
+            })
         }
-        else if identifier == "trashAction" {
-            NSNotificationCenter.defaultCenter().postNotificationName("deleteListNotification", object: nil)
+        else if identifier == "DELETE" {
+            noteModel?.deleteNote(profileDTO!.token, userId: profileDTO!.id, noteId: note!.id!, completion: { (error: NSError?) -> Void in
+                if(error == nil) {
+                    self.noteViewController!.tableView.reloadData()
+                    print("Deleted")
+                }
+                else {
+                    
+                }
+           })
         }
         
         completionHandler()
     }
 
+    func handleNotification(note: NoteDTO, beacon: BeaconDTO, noteModel: NoteModel, userProfile: UserProfileDTO) {
+        self.note = note
+        self.beacon = beacon
+        self.noteModel = noteModel
+        self.profileDTO = userProfile
+    }
 
 
 }

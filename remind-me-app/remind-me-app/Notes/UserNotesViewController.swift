@@ -15,15 +15,33 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     var loginModel: LoginRegisterModel?
     var noteModel: NoteModel?
     var leftBarButtonItem: UIBarButtonItem?
+    var beaconScanner : BeaconScanner?
+    var beaconModel: BeaconsModel?
+    var appDelegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barTintColor = GlobalConstants.Colors.BasicTurquoiseColor
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
         setupTableView()
         setupEditButton()
+        setupBeacons()
+        let appDeleg = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDeleg.noteViewController = self
+    }
+    
+    func setupBeacons() {
+            self.beaconModel?.getUsersBeacons((loginModel?.profileDTO.token)!, completion: { (error) -> Void in
+                if(error == nil) {
+                    self.beaconScanner = BeaconScanner(beacons: (self.beaconModel?.userBeacons)!)
+                    self.beaconScanner?.loginModel = self.loginModel
+                    self.beaconScanner?.beaconModel = self.beaconModel
+                    self.beaconScanner?.noteModel = self.noteModel
+                    self.beaconScanner?.appDelegate = self.appDelegate
+                }
+            })
+        
     }
     
     private func setupEditButton() {
@@ -67,6 +85,7 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
             let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
             controller.delegate = self
             controller.editingNote = note
+            controller.beaconScanner = self.beaconScanner
             let nv = UINavigationController(rootViewController: controller)
             self.showViewController(nv, sender: nil)
         }
@@ -81,6 +100,7 @@ class UserNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     func addNewItem() {
         let controller: AddNoteViewController = self.viewControllerAssembly?.addNoteViewController() as! AddNoteViewController
         controller.delegate = self
+        controller.beaconScanner = self.beaconScanner
         let nv = UINavigationController(rootViewController: controller)
         self.showViewController(nv, sender: nil)
     }

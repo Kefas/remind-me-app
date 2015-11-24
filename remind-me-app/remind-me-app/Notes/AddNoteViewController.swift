@@ -26,6 +26,7 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     var endDate: String?
     
     var beaconDTO: BeaconDTO?
+    var beaconScanner: BeaconScanner?
     
     @IBOutlet weak var noteText: THNotesTextView!
     @IBOutlet weak var startEndDatePicker: UISegmentedControl!
@@ -121,6 +122,7 @@ class AddNoteViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func beaconListButtonPressed(sender: AnyObject) {
         let beaconList: BeaconListViewController = viewControllerAssembly?.beaconListviewController() as! BeaconListViewController
         beaconList.delegate = self
+        beaconList.beaconScanner = self.beaconScanner
             self.navigationController?.pushViewController(beaconList, animated: true)
     }
     

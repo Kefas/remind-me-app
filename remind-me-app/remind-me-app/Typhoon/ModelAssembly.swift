@@ -43,5 +43,5 @@ class ModelAssembly: TyphoonAssembly {
         definition.scope = .Singleton
         return definition
     }
-
+    
 }
