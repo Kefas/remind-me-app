@@ -462,7 +462,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a56-GH-cYY">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a56-GH-cYY">
                                         <rect key="frame" x="243" y="369" width="114" height="29"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -511,6 +511,10 @@
                                             <action selector="closeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eji-zR-xzV"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vQz-2O-heW">
+                                        <rect key="frame" x="290" y="420" width="20" height="20"/>
+                                        <animations/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
@@ -520,11 +524,13 @@
                                     <constraint firstItem="a56-GH-cYY" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="FH9-bR-vwJ"/>
                                     <constraint firstAttribute="bottom" secondItem="tM2-O0-bXl" secondAttribute="bottom" priority="999" constant="50" id="I1x-09-srI"/>
                                     <constraint firstItem="tM2-O0-bXl" firstAttribute="leading" secondItem="OWe-TQ-0Cl" secondAttribute="leading" constant="20" id="KVq-id-HM7"/>
+                                    <constraint firstItem="vQz-2O-heW" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="MRH-Ra-6lZ"/>
                                     <constraint firstItem="tM2-O0-bXl" firstAttribute="top" secondItem="a56-GH-cYY" secondAttribute="bottom" constant="50" id="TvR-2b-DMA"/>
                                     <constraint firstItem="TxI-Wu-4QY" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="bXp-Zw-m7U"/>
                                     <constraint firstItem="TxI-Wu-4QY" firstAttribute="leading" secondItem="OWe-TQ-0Cl" secondAttribute="leading" constant="20" id="dBe-bm-lah"/>
                                     <constraint firstItem="a56-GH-cYY" firstAttribute="top" secondItem="TxI-Wu-4QY" secondAttribute="bottom" constant="25" id="l8e-o8-b7A"/>
                                     <constraint firstAttribute="trailing" secondItem="tM2-O0-bXl" secondAttribute="trailing" constant="20" id="lIz-MR-bQb"/>
+                                    <constraint firstItem="vQz-2O-heW" firstAttribute="centerY" secondItem="OWe-TQ-0Cl" secondAttribute="centerY" constant="130" id="nIw-h0-foy"/>
                                     <constraint firstItem="tyD-Xi-rkN" firstAttribute="leading" secondItem="OWe-TQ-0Cl" secondAttribute="leading" constant="20" id="oLN-el-8mE"/>
                                     <constraint firstItem="tM2-O0-bXl" firstAttribute="centerX" secondItem="OWe-TQ-0Cl" secondAttribute="centerX" id="sox-9I-Jam"/>
                                     <constraint firstItem="ChJ-PD-XFS" firstAttribute="top" secondItem="OWe-TQ-0Cl" secondAttribute="top" constant="80" id="spc-Ag-HpE"/>
@@ -552,6 +558,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="fbr-Qj-AUI" id="czY-Hz-24W"/>
+                        <outlet property="loginIndicator" destination="vQz-2O-heW" id="QeI-Dd-iVg"/>
                         <outlet property="passwordTextField" destination="oUy-f7-dZi" id="53Y-kq-O23"/>
                     </connections>
                 </viewController>
@@ -758,13 +765,19 @@
                                             <action selector="closeButtonPressed:" destination="Rux-dg-VdR" eventType="touchUpInside" id="UTH-yf-tTK"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-Jv-3sN">
+                                        <rect key="frame" x="290" y="410" width="20" height="20"/>
+                                        <animations/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="si9-09-qFY" secondAttribute="trailing" constant="20" id="A32-Ba-AKR"/>
+                                    <constraint firstItem="Xbb-Jv-3sN" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="J41-uP-DTu"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="top" secondItem="frt-tM-tFF" secondAttribute="bottom" constant="40" id="KmM-sP-1yH"/>
                                     <constraint firstAttribute="trailing" secondItem="9Y6-bv-xke" secondAttribute="trailing" constant="20" id="LwP-ua-QRH"/>
                                     <constraint firstItem="8wQ-7j-f1x" firstAttribute="leading" secondItem="9t0-Fl-bQr" secondAttribute="leading" constant="20" id="REZ-AZ-Syj"/>
+                                    <constraint firstItem="Xbb-Jv-3sN" firstAttribute="centerY" secondItem="9t0-Fl-bQr" secondAttribute="centerY" constant="120" id="TMM-Ot-Jhm"/>
                                     <constraint firstItem="9Y6-bv-xke" firstAttribute="centerX" secondItem="9t0-Fl-bQr" secondAttribute="centerX" id="WOb-pH-jYO"/>
                                     <constraint firstItem="si9-09-qFY" firstAttribute="leading" secondItem="9t0-Fl-bQr" secondAttribute="leading" constant="20" id="ZdR-be-lwo"/>
                                     <constraint firstItem="frt-tM-tFF" firstAttribute="top" secondItem="9t0-Fl-bQr" secondAttribute="top" constant="80" id="g7a-jj-Pg8"/>
@@ -799,6 +812,7 @@
                         <outlet property="confirmPasswordTextField" destination="9QI-nR-dGZ" id="NEd-hY-0OL"/>
                         <outlet property="emailTextField" destination="ysI-CM-ed0" id="2ag-Su-M9w"/>
                         <outlet property="passwordTextField" destination="WbS-ye-TuH" id="bYh-Ov-NwT"/>
+                        <outlet property="registerIndicator" destination="Xbb-Jv-3sN" id="ekK-zw-lur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-Vg-omz" sceneMemberID="firstResponder"/>

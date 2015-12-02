@@ -88,9 +88,7 @@ extension BeaconScanner: CLLocationManagerDelegate {
            })
             let beacon: BeaconDTO = self.findMissingBeacon(region as! CLBeaconRegion)
             self.scheduleNotificationsWithNotes(beacon)
-           // self.locationManager.stopRangingBeaconsInRegion(region as! CLBeaconRegion)
            
-            
             if (bgTask != UIBackgroundTaskInvalid){
                 UIApplication.sharedApplication().endBackgroundTask(bgTask);
             }
@@ -106,11 +104,10 @@ extension BeaconScanner: CLLocationManagerDelegate {
                     if(error == nil) {
                         for note: NoteDTO in notes! {
                             self.scheduleLocalNotification(note, beacon: beacon)
-                           // self.locationManager.stopUpdatingLocation()
                         }
                     }
                     else {
-        
+                        print("Error in fetching notes by beaconId")
                     }
                 })
 

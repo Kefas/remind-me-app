@@ -64,19 +64,20 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
         presentViewController(loginViewController, animated: true, completion: nil)
     }
     
-    func registerUser(registerData: RegisterUserDTO) {
+    func registerUser(registerData: RegisterUserDTO, indicator: UIActivityIndicatorView) {
         
         model.registerUser(registerData, completion: {
             (error: NSError?) -> Void in
             if error != nil {
               
             } else {
+                indicator.hidden = true
                 self.showRootController()
             }
         })
     }
     
-    func loginUserWithEmail(email: String, andPassword password: String) {
+    func loginUserWithEmail(email: String, andPassword password: String, indicator: UIActivityIndicatorView) {
     
         model.loginUser(email: email, password: password) {
             (error: NSError?) -> Void in
@@ -84,6 +85,7 @@ class IntroViewController: UIViewController, RegisterViewControllerDelegate, Log
                 
             }
             else {
+                indicator.hidden = true
                 self.showRootController()
             }
         }

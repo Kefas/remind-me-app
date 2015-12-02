@@ -9,19 +9,20 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: class {
-    func loginUserWithEmail(email: String, andPassword password: String)
+    func loginUserWithEmail(email: String, andPassword password: String, indicator: UIActivityIndicatorView)
     func loginViewController(controller: LoginViewController, forgotPasswordForEmail email: String?)
 }
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
      weak var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        loginIndicator.hidden = true
     }
 
     @IBAction func closeButtonPressed(sender: AnyObject) {
@@ -29,9 +30,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logInButtonPressed(sender: UIButton) {
+        loginIndicator.hidden = false
+        loginIndicator.startAnimating()
         let email = emailTextField.text
         let password = passwordTextField.text
-        delegate?.loginUserWithEmail(email!, andPassword: password!)
+        delegate?.loginUserWithEmail(email!, andPassword: password!, indicator: loginIndicator)
     }
     
     @IBAction func forgotPasswordPressed(sender: UIButton) {

@@ -9,11 +9,12 @@
 import UIKit
 
 protocol RegisterViewControllerDelegate: class {
-    func registerUser(registerData: RegisterUserDTO)
+    func registerUser(registerData: RegisterUserDTO, indicator: UIActivityIndicatorView)
 }
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var registerIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -23,7 +24,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        registerIndicator.hidden = true
     }
     
     @IBAction func closeButtonPressed(sender: AnyObject) {
@@ -31,7 +32,9 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(sender: UIButton) {
-        delegate?.registerUser(constructDataFromForm())
+        registerIndicator.hidden = false
+        registerIndicator.startAnimating()
+        delegate?.registerUser(constructDataFromForm(), indicator: registerIndicator)
     }
     
     private func constructDataFromForm() -> RegisterUserDTO {
